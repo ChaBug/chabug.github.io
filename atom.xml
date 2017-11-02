@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-02T03:57:25.834Z</updated>
+  <updated>2017-11-02T04:31:10.503Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.chabug.org/2017/11/02/hello/"/>
     <id>http://www.chabug.org/2017/11/02/hello/</id>
     <published>2017-11-02T03:12:04.000Z</published>
-    <updated>2017-11-02T03:57:25.834Z</updated>
+    <updated>2017-11-02T04:31:10.503Z</updated>
     
     <content type="html"><![CDATA[<h1 id="我胡汉三又回来了"><a href="#我胡汉三又回来了" class="headerlink" title="我胡汉三又回来了"></a>我胡汉三又回来了</h1><p>穷逼的ChaBug团队现在买不起服务器，只能先把博客挂在GitHub上了</p><p>最穷逼的初遇致敬</p>]]></content>
     
@@ -34,8 +34,6 @@
       
     
     </summary>
-    
-      <category term="others" scheme="http://www.chabug.org/categories/others/"/>
     
     
       <category term="ChaBug" scheme="http://www.chabug.org/tags/ChaBug/"/>
