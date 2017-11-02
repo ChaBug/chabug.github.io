@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Www.ChaBug.Org</title>
+  
+  <subtitle>ChaBug用心做安全</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.chabug.org/"/>
+  <updated>2017-11-02T03:13:58.110Z</updated>
+  <id>http://www.chabug.org/</id>
+  
+  <author>
+    <name>ChaBug</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我胡汉三又回来了</title>
+    <link href="http://www.chabug.org/2017/11/02/hello/"/>
+    <id>http://www.chabug.org/2017/11/02/hello/</id>
+    <published>2017-11-02T03:12:04.000Z</published>
+    <updated>2017-11-02T03:13:58.110Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我胡汉三又回来了"><a href="#我胡汉三又回来了" class="headerlink" title="我胡汉三又回来了"></a>我胡汉三又回来了</h1><p>穷逼的ChaBug团队现在买不起服务器，只能先把博客挂在GitHub上了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;我胡汉三又回来了&quot;&gt;&lt;a href=&quot;#我胡汉三又回来了&quot; class=&quot;headerlink&quot; title=&quot;我胡汉三又回来了&quot;&gt;&lt;/a&gt;我胡汉三又回来了&lt;/h1&gt;&lt;p&gt;穷逼的ChaBug团队现在买不起服务器，只能先把博客挂在GitHub上了&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="ChaBug,GitHub,hexo" scheme="http://www.chabug.org/tags/ChaBug-GitHub-hexo/"/>
+    
+  </entry>
+  
+</feed>
