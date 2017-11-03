@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-03T11:52:24.521Z</updated>
+  <updated>2017-11-03T11:59:21.737Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Tyoecho利用工具</title>
+    <title>Typecho利用工具</title>
     <link href="http://www.chabug.org/2017/11/03/typecho-tools/"/>
     <id>http://www.chabug.org/2017/11/03/typecho-tools/</id>
     <published>2017-11-03T11:37:37.000Z</published>
-    <updated>2017-11-03T11:52:24.521Z</updated>
+    <updated>2017-11-03T11:59:21.737Z</updated>
     
-    <content type="html"><![CDATA[<p>今天刚写了typecho的漏洞分析文章，现在再发一个利用工具。<br>只有一个按钮，你可以什么都不需要懂，只需要点两下就完成了hack。</p><h1 id="运行工具"><a href="#运行工具" class="headerlink" title="运行工具"></a>运行工具</h1><p>解开压缩包后，直接执行typecho.exe （lib目录下包含了php相关的库）。</p><p>将要进行测试的typecho网站的url复制到最上面的文本框中。</p><p>下面大的白框是信息回显窗口。</p><p>提供一个关键字<code>power by typecho</code><br>我通过搜索引擎随机找了一个刚搭建的Typecho网站进行测试。</p><h1 id="检测漏洞"><a href="#检测漏洞" class="headerlink" title="检测漏洞"></a>检测漏洞</h1><p>这个漏洞来源于install.php文件，这个文件不会自动删除，但可以被手动删除。</p><p>要成功利用该漏洞，网站必须没有删除install.php文件，同时也没有升级到最新的beta修复版本。</p><p>选好目标网站后，所以第一步就是检测是否存在漏洞。<br><img src="https://wx1.sinaimg.cn/mw1024/006xriynly1fl54n6s98jj31hc0sm79c.jpg" alt=""><br>选中【检测漏洞】单选钮，再点击【执行】按钮。</p><p>如上图，如果成功回显了phpinfo的信息，说明网站存在漏洞，并且可以成功利用。</p><h1 id="释放shell"><a href="#释放shell" class="headerlink" title="释放shell"></a>释放shell</h1><p>第二步选中【释放shell】单选钮，再点击【执行】按钮。</p><p><img src="https://wx4.sinaimg.cn/mw1024/006xriynly1fl54n6dowqj31hc0smaat.jpg" alt=""><br>如上图：回显“shell释放成功：expsky.php”，说明webshell文件成功生成。</p><p>（个别网站如果没有写入权限，这步可能会失败）</p><h1 id="验证shell"><a href="#验证shell" class="headerlink" title="验证shell"></a>验证shell</h1><p>对刚刚释放的webshell是否能正常工作进行验证。<br><img src="https://wx2.sinaimg.cn/mw1024/006xriynly1fl54n6fr8zj31hc0smtde.jpg" alt=""><br>第三步选中【验证shell】单选钮，再点击【执行】按钮。</p><p>如上图，如果phpinfo再次成功回显，说明刚刚生产的webshell已经可以正常工作。</p><h1 id="菜刀连接"><a href="#菜刀连接" class="headerlink" title="菜刀连接"></a>菜刀连接</h1><blockquote><p>webshell地址：网站域名/expsky.php<br>webshell密码：expsky</p></blockquote><p><img src="https://wx1.sinaimg.cn/mw1024/006xriynly1fl54n6d7q4j319a0kadhi.jpg" alt=""><br>上图可以看到我们释放webshell文件expsky.php。</p><p>演示完毕，在菜刀里把expsky.php删除了，完成自宫，没干坏事。</p><h1 id="漏洞修复方法"><a href="#漏洞修复方法" class="headerlink" title="漏洞修复方法"></a>漏洞修复方法</h1><p>可以先暂时删除掉根目录下掉 install.php 文件，或者也可以直接升级到最新的 Beta 版。</p><p>注意在升级的时候也要覆盖 install.php 文件。</p><h1 id="工具分享"><a href="#工具分享" class="headerlink" title="工具分享"></a>工具分享</h1><p>通过本工具，不需要懂技术，简单的点几下，半分钟内就可以完成网站的hack。</p><p>由于工具进一步完善后可能存在潜在危害，所以不提供源码。</p><p>工具下载: <a href="https://pan.baidu.com/s/1geYkDwf" target="_blank" rel="external"></a> 密码: dhvi，保证无任何后门（其他任何渠道下载的与本人无关）。</p><p>最后再次声明，我开发这个工具仅为了技术研究，严禁非法使用，否则后果自负。</p>]]></content>
+    <content type="html"><![CDATA[<p>今天刚写了typecho的漏洞分析文章，现在再发一个利用工具。<br>只有一个按钮，你可以什么都不需要懂，只需要点两下就完成了hack。</p><h1 id="运行工具"><a href="#运行工具" class="headerlink" title="运行工具"></a>运行工具</h1><p>解开压缩包后，直接执行typecho.exe （lib目录下包含了php相关的库）。</p><p>将要进行测试的typecho网站的url复制到最上面的文本框中。</p><p>下面大的白框是信息回显窗口。</p><p>提供一个关键字<code>power by typecho</code><br>我通过搜索引擎随机找了一个刚搭建的Typecho网站进行测试。</p><h1 id="检测漏洞"><a href="#检测漏洞" class="headerlink" title="检测漏洞"></a>检测漏洞</h1><p>这个漏洞来源于install.php文件，这个文件不会自动删除，但可以被手动删除。</p><p>要成功利用该漏洞，网站必须没有删除install.php文件，同时也没有升级到最新的beta修复版本。</p><p>选好目标网站后，所以第一步就是检测是否存在漏洞。<br><img src="http://otsghah4q.bkt.clouddn.com/1.jpg" alt=""><br>选中【检测漏洞】单选钮，再点击【执行】按钮。</p><p>如上图，如果成功回显了phpinfo的信息，说明网站存在漏洞，并且可以成功利用。</p><h1 id="释放shell"><a href="#释放shell" class="headerlink" title="释放shell"></a>释放shell</h1><p>第二步选中【释放shell】单选钮，再点击【执行】按钮。</p><p><img src="http://otsghah4q.bkt.clouddn.com/2.jpg" alt=""><br>如上图：回显“shell释放成功：expsky.php”，说明webshell文件成功生成。</p><p>（个别网站如果没有写入权限，这步可能会失败）</p><h1 id="验证shell"><a href="#验证shell" class="headerlink" title="验证shell"></a>验证shell</h1><p>对刚刚释放的webshell是否能正常工作进行验证。<br><img src="http://otsghah4q.bkt.clouddn.com/3.jpg" alt=""><br>第三步选中【验证shell】单选钮，再点击【执行】按钮。</p><p>如上图，如果phpinfo再次成功回显，说明刚刚生产的webshell已经可以正常工作。</p><h1 id="菜刀连接"><a href="#菜刀连接" class="headerlink" title="菜刀连接"></a>菜刀连接</h1><blockquote><p>webshell地址：网站域名/expsky.php<br>webshell密码：expsky</p></blockquote><p><img src="http://otsghah4q.bkt.clouddn.com/4.jpg" alt=""><br>上图可以看到我们释放webshell文件expsky.php。</p><p>演示完毕，在菜刀里把expsky.php删除了，完成自宫，没干坏事。</p><h1 id="漏洞修复方法"><a href="#漏洞修复方法" class="headerlink" title="漏洞修复方法"></a>漏洞修复方法</h1><p>可以先暂时删除掉根目录下掉 install.php 文件，或者也可以直接升级到最新的 Beta 版。</p><p>注意在升级的时候也要覆盖 install.php 文件。</p><h1 id="工具分享"><a href="#工具分享" class="headerlink" title="工具分享"></a>工具分享</h1><p>通过本工具，不需要懂技术，简单的点几下，半分钟内就可以完成网站的hack。</p><p>由于工具进一步完善后可能存在潜在危害，所以不提供源码。</p><p>工具下载: <a href="https://pan.baidu.com/s/1geYkDwf" target="_blank" rel="external">百度云</a> 密码: dhvi，保证无任何后门（其他任何渠道下载的与本人无关）。</p><p>最后再次声明，我开发这个工具仅为了技术研究，严禁非法使用，否则后果自负。</p>]]></content>
     
     <summary type="html">
     
