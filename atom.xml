@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Www.ChaBug.Org</title>
+  <title>ChaBug安全 | Www.ChaBug.Org</title>
   
   <subtitle>ChaBug用心做安全</subtitle>
   <link href="/atom.xml" rel="self"/>

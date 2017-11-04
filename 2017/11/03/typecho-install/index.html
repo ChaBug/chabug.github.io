@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Typecho-install.php 后门代码分析 | Www.ChaBug.Org</title>
+  <title>Typecho-install.php 后门代码分析 | ChaBug安全 | Www.ChaBug.Org</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Typecho-install.php 后门代码分析">
 <meta property="og:url" content="http://www.chabug.org/2017/11/03/typecho-install/index.html">
-<meta property="og:site_name" content="Www.ChaBug.Org">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
 <meta property="og:description" content="前几天的typecho爆的漏洞接二连三，我原本是想用typecho做博客的. 然后吓得我赶紧换了git+hexo。今天分析下这个install.php中的后门。 恶意代码 base64解码后反序列化cookie中传入的__typecho_config参数， 然后让__typecho_config作为构造参数例化一个Typecho_Db类， 接着通过POP链进行代码执行。  涉及到的文件还有类名 i">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-11-03T02:11:30.885Z">
