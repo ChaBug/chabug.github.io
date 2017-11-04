@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.chabug.org/2017/11/03/typecho-install/</loc>
+    
+    <lastmod>2017-11-04T07:11:53.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.chabug.org/2017/11/02/hello/</loc>
+    
+    <lastmod>2017-11-04T07:11:31.424Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.chabug.org/2017/11/03/typecho-tools/</loc>
     
     <lastmod>2017-11-04T05:48:58.558Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>http://www.chabug.org/404.html</loc>
     
     <lastmod>2017-11-04T02:38:14.611Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.chabug.org/2017/11/03/typecho-install/</loc>
-    
-    <lastmod>2017-11-03T02:11:30.885Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.chabug.org/2017/11/02/hello/</loc>
-    
-    <lastmod>2017-11-02T13:52:13.203Z</lastmod>
     
   </url>
   
