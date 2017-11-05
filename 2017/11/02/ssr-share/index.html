@@ -189,11 +189,6 @@
 
 
       
-        <span>
-          <i class="icon-comment"></i>
-          <a href="http://www.chabug.org/2017/11/02/ssr-share/#disqus_thread"></a>
-        </span>
-      
 
       
       <i class="fa fa-eye"></i> 
@@ -455,29 +450,6 @@
   
       <div class="fexo-comments comments-post">
     
-  <section class="disqus-comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-  </section>
-
-  <script>
-    var disqus_shortname = 'forsigner';
-    
-    var disqus_url = 'http://www.chabug.org/2017/11/02/ssr-share/';
-    
-    (function(){
-      var dsq = document.createElement('script');
-      dsq.type = 'text/javascript';
-      dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-
-  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
-
-
 
     
 
@@ -489,6 +461,30 @@
     
 
     
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="comment" ></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
+            appKey: "C7iKty624EOzxxwH1pXfuXL9",
+            avatar:'mm',
+            placeholder: "看了这么久，不来吐槽两句？",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
 
   </div>
 
