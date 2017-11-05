@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.chabug.org/404.html</loc>
+    
+    <lastmod>2017-11-05T03:21:54.331Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.chabug.org/2017/11/05/neiwang/</loc>
     
     <lastmod>2017-11-05T03:03:36.376Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://www.chabug.org/2017/11/02/hello/</loc>
     
     <lastmod>2017-11-04T07:11:31.424Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.chabug.org/404.html</loc>
-    
-    <lastmod>2017-11-04T02:38:14.611Z</lastmod>
     
   </url>
   
