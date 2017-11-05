@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://www.chabug.org/2017/11/05/fexo-valine-comment/</loc>
+    <lastmod>2017-11-05T13:58:00.320Z</lastmod>
+    <data>
+        <display>
+        <title>给fexo主题添加Valine评论系统</title>
+        <pubTime>2017-11-05T13:13:47.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.chabug.org/2017/11/02/hello/</loc>
+    <lastmod>2017-11-05T13:13:11.029Z</lastmod>
+    <data>
+        <display>
+        <title>Hello world</title>
+        <pubTime>2017-11-02T03:12:04.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.chabug.org/2017/11/03/typecho-batch/</loc>
     <lastmod>2017-11-05T13:10:02.319Z</lastmod>
     <data>
@@ -86,21 +116,6 @@
         <display>
         <title>Typecho install.php 后门代码分析</title>
         <pubTime>2017-11-03T01:42:23.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.chabug.org/2017/11/02/hello/</loc>
-    <lastmod>2017-11-04T07:11:31.424Z</lastmod>
-    <data>
-        <display>
-        <title>Hello world</title>
-        <pubTime>2017-11-02T03:12:04.000Z</pubTime>
         
          
            

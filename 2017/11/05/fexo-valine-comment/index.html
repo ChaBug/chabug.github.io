@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>给fexo主题添加Valine评论系统 | ChaBug安全 | Www.ChaBug.Org</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费" />
+  
+
+  <meta name="description" content="起因fexo主题是一款我自己感觉特别好看的hexo主题，但是有一点不太完美的地方。 fexo采用的第三方评论有hypercomments，disqus，多说，网易云跟帖。 不过hypercomments和disqus对国内的用户不太友好，所以果断放弃。而多说和网易云跟帖倒闭了，让我很无奈。只能自己操刀研究hexo主题，于是就有了这一篇文章。 简介Valine是基于Leancloud的极简风评论系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给fexo主题添加Valine评论系统">
+<meta property="og:url" content="http://www.chabug.org/2017/11/05/fexo-valine-comment/index.html">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
+<meta property="og:description" content="起因fexo主题是一款我自己感觉特别好看的hexo主题，但是有一点不太完美的地方。 fexo采用的第三方评论有hypercomments，disqus，多说，网易云跟帖。 不过hypercomments和disqus对国内的用户不太友好，所以果断放弃。而多说和网易云跟帖倒闭了，让我很无奈。只能自己操刀研究hexo主题，于是就有了这一篇文章。 简介Valine是基于Leancloud的极简风评论系统">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl7jwcw91vj30vn0gyq45.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl7jv4hxuij30uj0pcad2.jpg">
+<meta property="og:updated_time" content="2017-11-05T13:58:00.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="给fexo主题添加Valine评论系统">
+<meta name="twitter:description" content="起因fexo主题是一款我自己感觉特别好看的hexo主题，但是有一点不太完美的地方。 fexo采用的第三方评论有hypercomments，disqus，多说，网易云跟帖。 不过hypercomments和disqus对国内的用户不太友好，所以果断放弃。而多说和网易云跟帖倒闭了，让我很无奈。只能自己操刀研究hexo主题，于是就有了这一篇文章。 简介Valine是基于Leancloud的极简风评论系统">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006xriynly1fl7jwcw91vj30vn0gyq45.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e7d0b4f222c86066771d7246bd3dd18c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            归档
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#起因"><span class="toc-text">起因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取-APP-ID-和-APP-KEY"><span class="toc-text">获取 APP ID 和 APP KEY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面中的设置"><span class="toc-text">页面中的设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#评论数据管理"><span class="toc-text">评论数据管理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fexo修改"><span class="toc-text">fexo修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结尾"><span class="toc-text">结尾</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-fexo-valine-comment" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">给fexo主题添加Valine评论系统</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.11.05</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>ChaBug</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p><a href="https://github.com/forsigner/fexo" target="_blank" rel="external">fexo主题</a>是一款我自己感觉特别好看的hexo主题，但是有一点不太完美的地方。</p>
+<p>fexo采用的第三方评论有hypercomments，disqus，多说，网易云跟帖。</p>
+<p>不过hypercomments和disqus对国内的用户不太友好，所以果断放弃。而多说和网易云跟帖倒闭了，让我很无奈。只能自己操刀研究hexo主题，于是就有了这一篇文章。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Valine是基于Leancloud的极简风评论系统。</p>
+<ul>
+<li>简约，有着极其漂亮的UI设计<a href="http://www.chabug.org/2017/11/05/fexo-valine-comment/#comment">看这里</a></li>
+<li>免费，我还没有掏过钱</li>
+<li>免备案</li>
+<li>极致速度，国内国外速度都很强</li>
+<li>可以免费用邮件通知和数字验证码</li>
+</ul>
+<p>其他请自行体验。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="获取-APP-ID-和-APP-KEY"><a href="#获取-APP-ID-和-APP-KEY" class="headerlink" title="获取 APP ID 和 APP KEY"></a>获取 <code>APP ID</code> 和 <code>APP KEY</code></h2><ol>
+<li><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="external">点这里注册</a><code>Leancloud</code></li>
+<li><a href="https://leancloud.cn/dashboard/applist.html#/newapp" target="_blank" rel="external">点这里创建应用</a></li>
+<li>选择刚刚创建的<code>应用&gt;设置&gt;选择应用 Key</code>，然后你就能看到你的APP ID和APP KEY了，参考下图：<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl7jwcw91vj30vn0gyq45.jpg" alt=""></li>
+<li>为了您的数据安全，请填写<code>应用&gt;设置&gt;安全设置中的Web 安全域名</code>，如下图：<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fl7jv4hxuij30uj0pcad2.jpg" alt=""><h2 id="页面中的设置"><a href="#页面中的设置" class="headerlink" title="页面中的设置"></a>页面中的设置</h2>用代码说话<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Valine - A simple comment system based on Leancloud.<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--Leancloud 操作库:--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--Valine 的核心代码库:--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./dist/Valine.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">        new Valine(&#123;</span></div><div class="line"><span class="undefined">            // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)</span></div><div class="line"><span class="undefined">            av: AV,</span></div><div class="line"><span class="undefined">            el: '.comment', //</span></div><div class="line"><span class="undefined">            app_id: 'Your APP ID', // 这里填写上面得到的APP ID</span></div><div class="line"><span class="undefined">            app_key: 'Your APP KEY', // 这里填写上面得到的APP KEY</span></div><div class="line"><span class="undefined">            placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字</span></div><div class="line"><span class="undefined">        &#125;);</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="评论数据管理"><a href="#评论数据管理" class="headerlink" title="评论数据管理"></a>评论数据管理</h3><p>插播一下，关于评论数据管理，请自行登录Leancloud应用管理。<br>具体步骤：<code>登录&gt;选择你创建的应用&gt;存储&gt;选择ClassComment</code>，然后就可以尽情的发挥你的权利啦.</p>
+<h1 id="fexo修改"><a href="#fexo修改" class="headerlink" title="fexo修改"></a>fexo修改</h1><p><a href="https://github.com/forsigner/fexo/pull/102/files" target="_blank" rel="external">参考GitHub add valine comment system</a></p>
+<ol>
+<li><p>主题<code>_config.yml</code>修改</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># Comment service</div><div class="line">disqus_shortname: forsigner</div><div class="line"># hypercomments_id: 89821</div><div class="line"># gentie_key: d16a7241e7cd4b389584ed8db2a4e8bc</div><div class="line"></div><div class="line"># Valine comment system  https://valine.js.org</div><div class="line">valine:</div><div class="line">  enable: false # 如果使用valine，请设置改之为true</div><div class="line">  appid:  # your leancloud application appid</div><div class="line">  appkey:  # your leancloud application appkey</div><div class="line">  notify: false # mail notifier , https://github.com/xCss/Valine/wiki</div><div class="line">  verify: false # Verification code</div><div class="line">  placeholder: Just go go # comment box placeholder</div><div class="line">  avatar: mm # gravatar style</div><div class="line">  guest_info: nick,mail,link # custom comment header</div><div class="line">  pageSize: 10 # pagination size</div><div class="line"></div><div class="line"># 注意，多说即将关闭，建议选用上面四个评论系统</div><div class="line"># duoshuo_shortname: forsigner</div></pre></td></tr></table></figure>
+</li>
+<li><p>主题目录下<code>layout/_partial/component/comments.ejs</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fexo-comments &lt;%= className %&gt;"</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">disqus</span>') %&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">duoshuo</span>') %&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">gentie</span>') %&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">hypercomments</span>') %&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">valine</span>') %&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>在<code>layout/_partial/component/</code>目录下新建<code>valine.ejs</code><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.valine.enable</span>)&#123; %&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//unpkg.com/valine@latest/dist/Valine.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comment"</span> <span class="attr">class</span>=<span class="string">"comment"</span> &gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="xml">       var notify = '<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.notify</span> %&gt;</span>' == true ? true : false;</span></div><div class="line"><span class="xml">       var verify = '<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.verify</span> %&gt;</span>' == true ? true : false;</span></div><div class="line"><span class="undefined">       var GUEST_INFO = ['nick','mail','link'];</span></div><div class="line"><span class="xml">       var guest_info = '<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.guest_info</span> %&gt;</span>'.split(',').filter(function(item)&#123;</span></div><div class="line"><span class="undefined">           return GUEST_INFO.indexOf(item) &gt; -1</span></div><div class="line"><span class="undefined">       &#125;);</span></div><div class="line"><span class="undefined">       guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;</span></div><div class="line"><span class="undefined">       window.valine = new Valine(&#123;</span></div><div class="line"><span class="undefined">           el: '.comment',</span></div><div class="line"><span class="undefined">           notify: notify,</span></div><div class="line"><span class="undefined">           verify: verify,</span></div><div class="line"><span class="xml">           appId: "<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.appid</span> %&gt;</span>",</span></div><div class="line"><span class="xml">           appKey: "<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.appkey</span> %&gt;</span>",</span></div><div class="line"><span class="xml">           avatar:'<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.avatar</span> %&gt;</span>',</span></div><div class="line"><span class="xml">           placeholder: "<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.placeholder</span> %&gt;</span>",</span></div><div class="line"><span class="undefined">           guest_info:guest_info,</span></div><div class="line"><span class="xml">           pageSize:'<span class="tag">&lt;<span class="name">%=</span> <span class="attr">theme.valine.pageSize</span> %&gt;</span>'</span></div><div class="line"><span class="undefined">       &#125;);</span></div><div class="line"><span class="undefined">   </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>这个狗逼评论系统花了我一下午时间，找了很多资料，我在这里都贴出来，如果你看了我的文章还不会，请参考以下内容。<br><a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="external">Valine – 一款极简的评论系统</a><br><a href="https://panjunwen.com/diy-a-comment-system/#云引擎一键部署" target="_blank" rel="external">Valine: 独立博客评论系统解决方案</a> //这个相当于给评论系统搭建了后台管理  进阶必看<br><a href="http://liujiannn.com/note/2017.10.25/" target="_blank" rel="external">hexo搭建博客后magnetic主题如何添加valine评论系统</a> //适用于magenetic主题<br><a href="https://www.yfzzweb.com/Hexo/hexo-valine/#more" target="_blank" rel="external">Hexo优化 — 一款极简的评论系统</a> //适用于next主题</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持ChaBug</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/05/neiwang/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              归档
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="comment" ></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
+            appKey: "C7iKty624EOzxxwH1pXfuXL9",
+            avatar:'mm',
+            placeholder: "看了这么久，不来吐槽两句？",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
