@@ -477,8 +477,8 @@
     <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
     <div id="comment" class="comment" ></div>
     <script>
-        var notify = '' == true ? true : false;
-        var verify = '' == true ? true : false;
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
         var GUEST_INFO = ['nick','mail','link'];
         var guest_info = 'nick,mail,link'.split(',').filter(function(item){
             return GUEST_INFO.indexOf(item) > -1
@@ -486,8 +486,8 @@
         guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
         window.valine = new Valine({
             el: '.comment',
-            notify: true,
-            verify: true,
+            notify: notify,
+            verify: verify,
             appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
             appKey: "C7iKty624EOzxxwH1pXfuXL9",
             avatar:'mm',
