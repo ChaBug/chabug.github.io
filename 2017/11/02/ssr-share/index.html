@@ -462,8 +462,8 @@
 
     
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@1.1.8-beta3/dist/Valine.min.js"></script>
-    <div id="comment" class="comment" ></div>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
     <script>
         var notify = 'true' == true ? true : false;
         var verify = 'true' == true ? true : false;
@@ -473,7 +473,7 @@
         });
         guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
         window.valine = new Valine({
-            el: '.comment',
+            el: '.vcomment',
             notify: notify,
             verify: verify,
             appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
