@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-07T14:40:52.669Z</updated>
+  <updated>2017-11-08T08:59:20.074Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sqlmap-msf</title>
+    <link href="http://www.chabug.org/2017/11/08/sqlmap-msf/"/>
+    <id>http://www.chabug.org/2017/11/08/sqlmap-msf/</id>
+    <published>2017-11-08T08:59:20.000Z</published>
+    <updated>2017-11-08T08:59:20.074Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>已更新邀请码 SSR分享-你的翻墙利器</title>
