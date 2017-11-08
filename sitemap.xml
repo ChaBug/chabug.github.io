@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.chabug.org/2017/11/08/Layer/</loc>
+    
+    <lastmod>2017-11-08T09:21:08.970Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.chabug.org/2017/11/08/sqlmap-msf/</loc>
     
     <lastmod>2017-11-08T09:03:39.754Z</lastmod>

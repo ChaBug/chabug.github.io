@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>sqlmap与msf的亲密接触 | ChaBug安全 | Www.ChaBug.Org</title>
+  <title>工具收集之Layer4.1子域名挖掘机 | ChaBug安全 | Www.ChaBug.Org</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,17 +15,19 @@
     <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
   
 
-  <meta name="description" content="以前的视频了，翻出来帮大家涨姿势把。">
+  <meta name="description" content="前言实在是没啥可写了，收集点渗透测试中所需的几种工具。 程序Layer 子域名挖掘机4.1 全新重构+175万大字典优化详情：  新起项目，代码全部重写，性能更优更稳定。 增加子端口探测功能，方便渗透测试。 增加DNS服务器切换和自定义，目前测试DNSPOD最快，个人测试最快达到了每秒3000+条验证，速度比上个版本增加5–10倍（速度会越跑越快）。 切换DNS服务器也可以避免进行大量DNS查询的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sqlmap与msf的亲密接触">
-<meta property="og:url" content="http://www.chabug.org/2017/11/08/sqlmap-msf/index.html">
+<meta property="og:title" content="工具收集之Layer4.1子域名挖掘机">
+<meta property="og:url" content="http://www.chabug.org/2017/11/08/Layer/index.html">
 <meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
-<meta property="og:description" content="以前的视频了，翻出来帮大家涨姿势把。">
+<meta property="og:description" content="前言实在是没啥可写了，收集点渗透测试中所需的几种工具。 程序Layer 子域名挖掘机4.1 全新重构+175万大字典优化详情：  新起项目，代码全部重写，性能更优更稳定。 增加子端口探测功能，方便渗透测试。 增加DNS服务器切换和自定义，目前测试DNSPOD最快，个人测试最快达到了每秒3000+条验证，速度比上个版本增加5–10倍（速度会越跑越快）。 切换DNS服务器也可以避免进行大量DNS查询的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-08T09:03:39.754Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1flasp3oj2mj316g0sq0ul.jpg">
+<meta property="og:updated_time" content="2017-11-08T09:21:08.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sqlmap与msf的亲密接触">
-<meta name="twitter:description" content="以前的视频了，翻出来帮大家涨姿势把。">
+<meta name="twitter:title" content="工具收集之Layer4.1子域名挖掘机">
+<meta name="twitter:description" content="前言实在是没啥可写了，收集点渗透测试中所需的几种工具。 程序Layer 子域名挖掘机4.1 全新重构+175万大字典优化详情：  新起项目，代码全部重写，性能更优更稳定。 增加子端口探测功能，方便渗透测试。 增加DNS服务器切换和自定义，目前测试DNSPOD最快，个人测试最快达到了每秒3000+条验证，速度比上个版本增加5–10倍（速度会越跑越快）。 切换DNS服务器也可以避免进行大量DNS查询的">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006xriynly1flasp3oj2mj316g0sq0ul.jpg">
 
   
 
@@ -160,12 +162,17 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序"><span class="toc-text">程序</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
-   <article id="post-sqlmap-msf" class="article article-type-post" itemprop="blogPost">
+   <article id="post-Layer" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">sqlmap与msf的亲密接触</h1>
+    <h1 class="post-title">工具收集之Layer4.1子域名挖掘机</h1>
 
     <div class="article-meta">
       <span>
@@ -200,8 +207,31 @@
 
   <div class="article-content">
     
-      <p><strong>以前的视频了，翻出来帮大家涨姿势把。</strong></p>
-<iframe frameborder="0" width="640" height="498" src="https://v.qq.com/iframe/player.html?vid=t0544olbhxc&tiny=0&auto=0" allowfullscreen></iframe>
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>实在是没啥可写了，收集点渗透测试中所需的几种工具。</p>
+<h1 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h1><p><strong>Layer 子域名挖掘机4.1 全新重构+175万大字典</strong><br>优化详情：</p>
+<ol>
+<li>新起项目，代码全部重写，性能更优更稳定。</li>
+<li>增加子端口探测功能，方便渗透测试。</li>
+<li>增加DNS服务器切换和自定义，目前测试DNSPOD最快，个人测试最快达到了每秒3000+条验证，速度比上个版本增加5–10倍（速度会越跑越快）。</li>
+<li>切换DNS服务器也可以避免进行大量DNS查询的时候影响正常上网。</li>
+<li>对字典权重进行了调整，更容易命中的排在更前。</li>
+<li>增加升级提醒，如果还有下个版本的话，会有提醒。<br>程序下载地址：<a href="https://pan.baidu.com/s/1dE4jgTr" target="_blank" rel="external">https://pan.baidu.com/s/1dE4jgTr</a> 密码: 9f5u<br>源码下载地址：<a href="https://pan.baidu.com/s/1qXURfzu" target="_blank" rel="external">https://pan.baidu.com/s/1qXURfzu</a><br>BTW：我也不知道360这个傻逼为什么会报窃取QQ密码的毒。<br><img src="http://ww1.sinaimg.cn/large/006xriynly1flasp3oj2mj316g0sq0ul.jpg" alt=""></li>
+</ol>
+<p><strong>Layer子域名挖掘机4.2纪念版 增加功能</strong></p>
+<ol>
+<li><p>增加获取web服务器信息的功能，如果在渗透过程中，担心软件自动访问web服务器会记录到web日志，可以关闭获取WEB服务器信息功能，但是如果干特别大的坏事，人家还是可以通过运营商的渠道来抓你。</p>
+</li>
+<li><p>增加线程控制，因有不少人反馈，开全速的时候，他们的小电脑会卡死，反正我电脑跑起来妥妥的，所以默认设置为全速。</p>
+</li>
+<li><p>增加右键复制所选项，胖子硬提出的需求。</p>
+</li>
+<li><p>修复了一个线程锁的问题，没修复前会引起程序崩溃。</p>
+</li>
+</ol>
+<p>小TIPS：为了适应不同的分辨率，首次启动设置了全屏，可点击右上角的最大化按钮复位到我截图的这个小窗口。</p>
+<p>程序地址：<a href="https://pan.baidu.com/s/1i5NpcJ7" target="_blank" rel="external">https://pan.baidu.com/s/1i5NpcJ7</a></p>
+<p>源码地址：<a href="https://pan.baidu.com/s/1o8qAKYm" target="_blank" rel="external">https://pan.baidu.com/s/1o8qAKYm</a>  </p>
+<p>作者<a href="http://www.cnseay.com/4452/" target="_blank" rel="external">Seay的博客</a></p>
 
     
   </div>
@@ -232,10 +262,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/11/07/ssr-share/">
+    <a class="show pull-left" href="/2017/11/08/sqlmap-msf/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/11/08/Layer/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
