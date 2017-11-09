@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.chabug.org/about/index.html</loc>
+    
+    <lastmod>2017-11-09T14:29:58.262Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.chabug.org/2017/11/08/sqlmap-msf/</loc>
     
     <lastmod>2017-11-09T02:21:07.187Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://www.chabug.org/2017/11/05/fexo-valine-comment/</loc>
     
     <lastmod>2017-11-06T03:17:31.582Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.chabug.org/2017/11/02/hello/</loc>
-    
-    <lastmod>2017-11-05T13:13:11.029Z</lastmod>
     
   </url>
   
@@ -103,13 +103,6 @@
     <loc>http://www.chabug.org/search/index.html</loc>
     
     <lastmod>2017-11-02T04:30:30.227Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.chabug.org/about/index.html</loc>
-    
-    <lastmod>2017-11-02T04:22:41.891Z</lastmod>
     
   </url>
   
