@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-10T03:30:11.173Z</updated>
+  <updated>2017-11-10T04:05:27.754Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>滴滴云免费两个月服务器</title>
+    <link href="http://www.chabug.org/2017/11/10/didiyun-freevps/"/>
+    <id>http://www.chabug.org/2017/11/10/didiyun-freevps/</id>
+    <published>2017-11-10T04:00:45.000Z</published>
+    <updated>2017-11-10T04:05:27.754Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://wx2.sinaimg.cn/mw690/7efa749fly1flby2c14utj20nt0ckwhz.jpg" alt=""><br>滴滴云貌似是滴滴出行搞的云服务。</p><blockquote><p>滴滴云基于滴滴出行的业务技术和经验积累，<br>采用领先的云计算架构、高规格服务器集群搭建、高性能资源配置机制、精细化运营模式，<br>致力于为开发者提供简单快捷、高效稳定、高性价比、安全可靠的IT基础设施云服务。</p></blockquote><p>官网地址<br><a href="https://www.didiyun.com/" target="_blank" rel="external">https://www.didiyun.com/</a></p><p>新人活动<br>新注册滴滴云的用户都可以获得100元新人券。开通最低配置的VPS可以玩2个月！！</p><p>注册步骤<br>访问地址：<a href="https://i.didiyun.com/2d5YwCbUWzj" target="_blank" rel="external">https://i.didiyun.com/2d5YwCbUWzj</a> 注册账号。</p><p>只需要验证邮箱和手机号码！！</p><p>然后账号可以收到100元新人券！！ 开通机器即可！</p><p><strong>开通机器</strong><br>开通机器后登录的用户名不是root。  </p><p>请使用 dc2-user  ，切换到root 请使用命令： su  或者 sudo -i<br><strong>最低配置</strong><br>1核CPU / 512M内存 / 20GSSD / 1M带宽 / KVM虚拟 ≈ 49元/月<br><strong>测试IP</strong><br>103.73.51.200<br><strong>性能测试</strong><br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">----------------------------------------------------------------------</div><div class="line">CPU model            : Intel(R) Xeon(R) CPU E5-<span class="number">2650</span> v4 @ <span class="number">2.20</span>GHz</div><div class="line">Number of cores      : <span class="number">1</span></div><div class="line">CPU frequency        : <span class="number">2197.454</span> MHz</div><div class="line">Total size of Disk   : <span class="number">20.0</span> GB (<span class="number">1.0</span> GB Used)</div><div class="line">Total amount of Mem  : <span class="number">996</span> MB (<span class="number">216</span> MB Used)</div><div class="line">Total amount of Swap : <span class="number">0</span> MB (<span class="number">0</span> MB Used)</div><div class="line">System uptime        : <span class="number">0</span> days, <span class="number">0</span> hour <span class="number">11</span> min</div><div class="line">Load average         : <span class="number">0.08</span>, <span class="number">0.02</span>, <span class="number">0.01</span></div><div class="line">OS                   : CentOS <span class="number">6.9</span></div><div class="line">Arch                 : x86_64 (<span class="number">64</span> Bit)</div><div class="line">Kernel               : <span class="number">2.6</span>.<span class="number">32</span>-<span class="number">696.6</span>.<span class="number">3</span>.el6.x86_64</div><div class="line">----------------------------------------------------------------------</div><div class="line">I/O speed(<span class="number">1</span>st run)   : <span class="number">451</span> MB/s</div><div class="line">I/O speed(<span class="number">2</span>nd run)   : <span class="number">536</span> MB/s</div><div class="line">I/O speed(<span class="number">3</span>rd run)   : <span class="number">634</span> MB/s</div><div class="line">Average I/O speed    : <span class="number">540.3</span> MB/s</div><div class="line">----------------------------------------------------------------------</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://wx2.sinaimg.cn/mw690/7efa749fly1flby2c14utj20nt0ckwhz.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;滴滴云貌似是滴滴出行搞的云服务。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;滴滴云基于滴滴出行的业务
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Google镜像收集</title>
