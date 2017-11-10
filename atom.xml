@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-09T14:46:51.563Z</updated>
+  <updated>2017-11-10T03:30:11.173Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google镜像收集</title>
+    <link href="http://www.chabug.org/2017/11/10/google-mirror/"/>
+    <id>http://www.chabug.org/2017/11/10/google-mirror/</id>
+    <published>2017-11-10T03:09:50.000Z</published>
+    <updated>2017-11-10T03:30:11.173Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="清单"><a href="#清单" class="headerlink" title="清单"></a>清单</h1><p>清单如下，欢迎提供新镜像。  </p><table><thead><tr><th style="text-align:center">名称</th><th style="text-align:center">地址</th><th style="text-align:center">备注</th></tr></thead><tbody><tr><td style="text-align:center">皮皮虾</td><td style="text-align:center"><a href="https://gg.shadowsocksr.se" target="_blank" rel="external">https://gg.shadowsocksr.se</a></td><td style="text-align:center">速度不错</td></tr><tr><td style="text-align:center">sapmogy</td><td style="text-align:center"><a href="https://so.sapmogy.com/" target="_blank" rel="external">https://so.sapmogy.com/</a></td><td style="text-align:center">香港机器速度很快</td></tr><tr><td style="text-align:center">futureisnow</td><td style="text-align:center"><a href="https://gg.futureisnow.cn/" target="_blank" rel="external">https://gg.futureisnow.cn/</a></td><td style="text-align:center">ssl有错误</td></tr><tr><td style="text-align:center">uulucky</td><td style="text-align:center"><a href="https://google.uulucky.com/" target="_blank" rel="external">https://google.uulucky.com/</a></td><td style="text-align:center">完美的反代</td></tr><tr><td style="text-align:center">88DR</td><td style="text-align:center"><a href="http://www.88dr.com/" target="_blank" rel="external">http://www.88dr.com/</a></td><td style="text-align:center">狗爹新加坡空间，较慢</td></tr><tr><td style="text-align:center">光的传人</td><td style="text-align:center"><a href="http://www.liu16.com/g.html" target="_blank" rel="external">http://www.liu16.com/g.html</a></td><td style="text-align:center">有广告</td></tr><tr><td style="text-align:center">学术搜索</td><td style="text-align:center"><a href="https://so.sciencesoft.cn/" target="_blank" rel="external">https://so.sciencesoft.cn/</a></td><td style="text-align:center">非原版Google</td></tr><tr><td style="text-align:center">九尾搜索</td><td style="text-align:center"><a href="https://a.glgooo.top/" target="_blank" rel="external">https://a.glgooo.top/</a></td><td style="text-align:center">有广告</td></tr></tbody></table><h1 id="其他镜像收集站点"><a href="#其他镜像收集站点" class="headerlink" title="其他镜像收集站点"></a>其他镜像收集站点</h1><table><thead><tr><th style="text-align:center">名称</th><th style="text-align:center">地址</th></tr></thead><tbody><tr><td style="text-align:center">coderschool</td><td style="text-align:center"><a href="https://coderschool.cn/1853.html" target="_blank" rel="external">https://coderschool.cn/1853.html</a></td></tr><tr><td style="text-align:center">思谋导航</td><td style="text-align:center"><a href="http://dir.scmor.com/google/" target="_blank" rel="external">http://dir.scmor.com/google/</a></td></tr><tr><td style="text-align:center">自在板</td><td style="text-align:center"><a href="http://www.zizaifan.com/html/google.html" target="_blank" rel="external">http://www.zizaifan.com/html/google.html</a></td></tr><tr><td style="text-align:center">运维网</td><td style="text-align:center"><a href="https://www.iyunv.com/thread-135490-1-1.html" target="_blank" rel="external">https://www.iyunv.com/thread-135490-1-1.html</a></td></tr><tr><td style="text-align:center">那个孩子萌萌哒 abc</td><td style="text-align:center"><a href="http://weibo.com/ttarticle/p/show?id=2309404043918147773050" target="_blank" rel="external">http://weibo.com/ttarticle/p/show?id=2309404043918147773050</a></td></tr><tr><td style="text-align:center">闫珂的博客</td><td style="text-align:center"><a href="http://yanke.info/google.htm" target="_blank" rel="external">http://yanke.info/google.htm</a></td></tr></tbody></table><h1 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h1><ul><li>2017/11/10 更新可用</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;清单&quot;&gt;&lt;a href=&quot;#清单&quot; class=&quot;headerlink&quot; title=&quot;清单&quot;&gt;&lt;/a&gt;清单&lt;/h1&gt;&lt;p&gt;清单如下，欢迎提供新镜像。  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>隐藏用户建立 Powershell</title>
