@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-21T07:56:18.954Z</updated>
+  <updated>2017-11-21T08:05:44.430Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>贼好看之Xshell5的配色方案monokai</title>
+    <link href="http://www.chabug.org/2017/11/21/xshell-color/"/>
+    <id>http://www.chabug.org/2017/11/21/xshell-color/</id>
+    <published>2017-11-21T07:58:25.000Z</published>
+    <updated>2017-11-21T08:05:44.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>xshell5默认的配色方案不是很好看，有点伤眼睛，网上也有很多xshell的配色方案，但都感觉不是很满意。<br>最近找到一个monokai的配色方案，配合vim的molokai主题，简直不要太爽!</p><h1 id="新建文件monokai-xcs"><a href="#新建文件monokai-xcs" class="headerlink" title="新建文件monokai.xcs"></a>新建文件monokai.xcs</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">[monokai]</div><div class="line">text=ffffff</div><div class="line">cyan(bold)=a6e22e</div><div class="line">text(bold)=ffffff</div><div class="line">magenta=f92672</div><div class="line">green=80ff80</div><div class="line">green(bold)=80ff80</div><div class="line">background=272822</div><div class="line">cyan=a6e22e</div><div class="line">red(bold)=de8e30</div><div class="line">yellow=66d9ef</div><div class="line">magenta(bold)=f92672</div><div class="line">yellow(bold)=66d9ef</div><div class="line">red=de8e30</div><div class="line">white=c0c0c0</div><div class="line">blue(bold)=ae81ff</div><div class="line">white(bold)=ffffff</div><div class="line">black=000000</div><div class="line">blue=ae81ff</div><div class="line">black(bold)=000000</div><div class="line">[Names]</div><div class="line">name0=monokai</div><div class="line">count=1</div></pre></td></tr></table></figure><h1 id="导入monokai-xcs"><a href="#导入monokai-xcs" class="headerlink" title="导入monokai.xcs"></a>导入monokai.xcs</h1><p>Xshell5 -&gt; 工具 -&gt; 配色方案 -&gt; 导入monokai.xcs<br>上图<br><img src="http://ww1.sinaimg.cn/large/006xriynly1flprkuli4uj311g0i2ab8.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;xshell5默认的配色方案不是很好看，有点伤眼睛，网上也有很多xshell的配色方案，但都感觉不是很满意。&lt;br&gt;最近找到一个monokai的配色方案，配合vim的molokai主题，简直不要太爽!&lt;/p&gt;
+&lt;h1 id=&quot;新建文件monokai-xcs&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>WordPress（4.8.2及以下版本） SQL注入利用漏洞</title>
