@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>分享一个可以用模板的自动签到系统🙄 | ChaBug安全 | Www.ChaBug.Org</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
+  
+
+  <meta name="description" content="前言常常混迹各大论坛和剁手网站的小伙伴们，各大网站为了蚕食我们的时间，基本都是有推出了每日签到的系统，比如JD豆，经验值，金币，积分等等。。。并且很多必须还要连续不间断签到才能获得更高的奖励。🤢   然而平常稍微忙一点的话，一下子就前功尽弃了。 🙃 所以一个叫签到.TODAY的项目诞生了。   项目地址binux/qiandao 项目演示QIANDAO.TODAY 演示网站是作者自己开的，里面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一个可以用模板的自动签到系统🙄">
+<meta property="og:url" content="http://www.chabug.org/2017/11/23/qiandao-today/index.html">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
+<meta property="og:description" content="前言常常混迹各大论坛和剁手网站的小伙伴们，各大网站为了蚕食我们的时间，基本都是有推出了每日签到的系统，比如JD豆，经验值，金币，积分等等。。。并且很多必须还要连续不间断签到才能获得更高的奖励。🤢   然而平常稍微忙一点的话，一下子就前功尽弃了。 🙃 所以一个叫签到.TODAY的项目诞生了。   项目地址binux/qiandao 项目演示QIANDAO.TODAY 演示网站是作者自己开的，里面">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-23T14:02:56.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分享一个可以用模板的自动签到系统🙄">
+<meta name="twitter:description" content="前言常常混迹各大论坛和剁手网站的小伙伴们，各大网站为了蚕食我们的时间，基本都是有推出了每日签到的系统，比如JD豆，经验值，金币，积分等等。。。并且很多必须还要连续不间断签到才能获得更高的奖励。🤢   然而平常稍微忙一点的话，一下子就前功尽弃了。 🙃 所以一个叫签到.TODAY的项目诞生了。   项目地址binux/qiandao 项目演示QIANDAO.TODAY 演示网站是作者自己开的，里面">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e7d0b4f222c86066771d7246bd3dd18c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            归档
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目地址"><span class="toc-text">项目地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目演示"><span class="toc-text">项目演示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何安装"><span class="toc-text">如何安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web"><span class="toc-text">Web</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Docker部署站点"><span class="toc-text">使用Docker部署站点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何创建签到模板"><span class="toc-text">如何创建签到模板</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-qiandao-today" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">分享一个可以用模板的自动签到系统🙄</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.11.23</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>初遇</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>常常混迹各大论坛和剁手网站的小伙伴们，各大网站为了蚕食我们的时间，基本都是有推出了每日签到的系统，比如JD豆，经验值，金币，积分等等。。。并且很多必须还要连续不间断签到才能获得更高的奖励。🤢  </p>
+<p>然而平常稍微忙一点的话，一下子就前功尽弃了。 🙃</p>
+<p>所以一个叫签到.TODAY的项目诞生了。  </p>
+<h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="https://github.com/binux/qiandao" target="_blank" rel="external">binux/qiandao</a></p>
+<h1 id="项目演示"><a href="#项目演示" class="headerlink" title="项目演示"></a>项目演示</h1><p><a href="https://qiandao.today/" target="_blank" rel="external">QIANDAO.TODAY</a></p>
+<p>演示网站是作者自己开的，里面可以注册帐号并且直接可以使用搭建好的签到系统。🤔</p>
+<p>当然若是害怕隐私被泄露的话，也建议自己在GITHUB中下载源码自行部署🙃</p>
+<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><p>签到模板基本上分成三大类：</p>
+<ul>
+<li><p>直接账号密码签到<br>直接使用要签到网站的帐号密码来签到。</p>
+</li>
+<li><p>PC网页端COOKIES签到<br>在Chrome中使用<a href="https://github.com/acgotaku/GetCookies" target="_blank" rel="external">Cookies获取助手</a>自动抓取Cookies，在签到面板中可以直接一键获取需要的Cookies来签到。</p>
+</li>
+<li><p>移动设备端COOKIES签到<br>PC上使用软件Fiddler来抓取移动设备签到时的Cookies，再填入签到面板的Cookies栏来签到。</p>
+</li>
+</ul>
+<h1 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><p>需要 python2.7, <strong>虚拟主机无法安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install python-dev autoconf g++ python-pbkdf2</div><div class="line">pip install tornado u-msgpack-python jinja2 chardet requests pbkdf2 pycrypto</div></pre></td></tr></table></figure></p>
+<p>可选 redis, Mysql</p>
+<p><code>mysql &lt; qiandao.sql</code></p>
+<p>启动</p>
+<p><code>./run.py</code><br>去 <a href="https://qiandao.today/tpls/public" target="_blank" rel="external">https://qiandao.today/tpls/public</a> 查看你需要的模板，点击下载。 在你自己的主页中 <code>「我的模板+」</code> 点击 + <code>上传</code>。模板需要发布才会在<code>「公开模板」</code>中展示，你需要管理员权限在<code>「我的发布请求」</code>中审批通过。</p>
+<p>设置管理员</p>
+<p><code>./chrole.py your@email.address admin</code></p>
+<h2 id="使用Docker部署站点"><a href="#使用Docker部署站点" class="headerlink" title="使用Docker部署站点"></a>使用Docker部署站点</h2><p>可参考 <a href="https://github.com/binux/qiandao/wiki/Docker%E9%83%A8%E7%BD%B2%E7%AD%BE%E5%88%B0%E7%AB%99%E6%95%99%E7%A8%8B" target="_blank" rel="external">Wiki Docker部署签到站教程</a></p>
+<hr>
+<p>qiandao.py</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install tornado u-msgpack-python jinja2 chardet requests</div><div class="line">./qiandao.py tpl.har [--key=value]* [env.json]</div></pre></td></tr></table></figure>
+<hr>
+<p>config.py</p>
+<hr>
+<p>优先用<code>mailgun</code>方式发送邮件，如果要用smtp方式发送邮件，请填写<code>mail_smtp</code>, <code>mail_user</code>, <code>mail_password</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mail_smtp = &quot;&quot;     # 邮件smtp 地址</div><div class="line">mail_user = &quot;&quot;    # 邮件账户</div><div class="line">mail_passowrd = &quot;&quot;   # 邮件密码</div><div class="line">mail_domain = &quot;mail.qiandao.today&quot;</div><div class="line">mailgun_key = &quot;&quot;</div></pre></td></tr></table></figure></p>
+<h1 id="如何创建签到模板"><a href="#如何创建签到模板" class="headerlink" title="如何创建签到模板"></a>如何创建签到模板</h1><p>参考此开发文档😐</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我们</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/11/23/CVE-2017-11882/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              归档
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
+            appKey: "C7iKty624EOzxxwH1pXfuXL9",
+            avatar:'mm',
+            placeholder: "看完了?来吐槽啊!记得正确填写邮箱,有回复会邮件通知你哦٩(๑❛ᴗ❛๑)۶",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
