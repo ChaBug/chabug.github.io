@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-12-22T10:09:47.675Z</updated>
+  <updated>2017-12-23T05:53:35.888Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WP主题：DUX3.0&amp;2.0主题开心版</title>
+    <link href="http://www.chabug.org/2017/12/23/dux3-and-2/"/>
+    <id>http://www.chabug.org/2017/12/23/dux3-and-2/</id>
+    <published>2017-12-23T05:49:16.000Z</published>
+    <updated>2017-12-23T05:53:35.888Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://ws2.sinaimg.cn/mw690/7efa749fly1fmn5apzu1ej20mg0alq56.jpg" alt=""><br><strong>DUX主题更新方法</strong></p><p>主题更新方法：</p><p>使用FTP软件上传 dux文件夹到服务器的 wp-content/themes 目录下，替换所有文件即可。</p><p>注：使用此方法更新主题会保留网站之前的 dux主题设置。</p><p><strong>DUX主题更新记录</strong></p><p>DUX主题3.0版本更新内容：</p><ul><li><p>全新的标签云（tags）页面</p></li><li><p>新增分类的SEO标题、SEO关键字和SEO描述</p></li><li><p>新增聚合文章小工具按浏览量排序的文章展示</p></li><li><p>新增链接分类可排序，按别名字母或数字从小到大排序，适用于主题中所有的链接调取</p></li><li><p>新增链接可排序，按评分从高到低排序，适用于主题中所有的链接调取</p></li><li><p>新增对WP4.8+小工具文本的可视化展示支持</p></li><li><p>新增对WP4.8+小工具音频、视频、图像的支持</p></li><li><p>修改站点设置中副标题为空时只显示站点标题</p></li><li><p>修改文章和页面的自动描述（description）字数限制为200</p></li><li><p>修改标签页面的描述（description）为标签的图像描述</p></li><li><p>解决找回密码页面下拉可能发生的页面抖动</p></li><li><p>解决主题设置中图片地址参数被过滤的问题</p></li><li><p>解决搜索页面搜索框不显示的问题</p></li><li><p>去除主题设置中的360公共资源库引用</p></li><li><p>修改图片lazyload缩略图的判断方式</p></li><li><p>其他小问题的修复</p></li></ul><p><strong>下载地址</strong></p><p>3.0版本下载地址：<a href="https://pan.baidu.com/s/1o8IGgrS" target="_blank" rel="external">https://pan.baidu.com/s/1o8IGgrS</a>    3.0版本密码：15d3</p><p>2.0版本下载地址：<a href="https://pan.baidu.com/s/1pKKzyrh" target="_blank" rel="external">https://pan.baidu.com/s/1pKKzyrh</a>    2.0版本密码：yfnj</p><p><strong>注意事项：<br>大前端Dux3.0主题，来源网络，经本站认真测试功能完整无任何限制，无任何后门或者恶意代码。<br>再次申明：经本站下载的主题都是用来学习研究用，如需商用请购买正版！</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://ws2.sinaimg.cn/mw690/7efa749fly1fmn5apzu1ej20mg0alq56.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;strong&gt;DUX主题更新方法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;主题更新方法：&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>看我如何搞掉国内最大的webshell箱子</title>
@@ -425,29 +448,6 @@
       
       
         &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.appnode.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AppN
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>战狼2超清和4k资源</title>
-    <link href="http://www.chabug.org/2017/11/04/zhanlang2-4k/"/>
-    <id>http://www.chabug.org/2017/11/04/zhanlang2-4k/</id>
-    <published>2017-11-04T07:34:02.000Z</published>
-    <updated>2017-11-04T07:36:55.141Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/006xriynly1fl63bioaavj30ps0eeq3d.jpg" alt="画质体验"></p><p>复制磁力链到百度网盘离线</p><p>1080P磁力：<code>magnet:?xt=urn:btih:106BC0651796AE46BACF6CF92C658FD754576F38</code></p><p>4K磁力：<code>magnet:?xt=urn:btih:7E364FE1EF493761AA7C2C4231F5D8DC34DF90FE</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/006xriynly1fl63bioaavj30ps0eeq3d.jpg&quot; alt=&quot;画质体验&quot;&gt;&lt;/p&gt;
-&lt;p&gt;复制磁力链到百度网盘离线&lt;/p&gt;
-&lt;p&gt;1080P磁力：&lt;code&gt;magnet:?
       
     
     </summary>
