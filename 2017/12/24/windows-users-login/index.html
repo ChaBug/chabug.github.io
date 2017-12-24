@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>渗透技巧之Windows系统远程桌面的多用户登录 | ChaBug安全 | Www.ChaBug.Org</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
+  
+
+  <meta name="description" content="0x00 前言 在渗透测试中，经常会接触Windows服务器的远程桌面服务，通过界面对服务器进行管理。而对于普通的Windows系统，在某些条件下也需要进行界面操作。 虽然我们可以通过编写程序来实现界面操作（捕获桌面信息，压缩传输，发送鼠标键盘消息等），但是如果能够使用远程桌面服务，岂不是更加方便高效 那么，对应非服务器版本的Windows系统，在使用远程桌面服务有哪些需要注意的问题呢，本文将会逐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透技巧之Windows系统远程桌面的多用户登录">
+<meta property="og:url" content="http://www.chabug.org/2017/12/24/windows-users-login/index.html">
+<meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
+<meta property="og:description" content="0x00 前言 在渗透测试中，经常会接触Windows服务器的远程桌面服务，通过界面对服务器进行管理。而对于普通的Windows系统，在某些条件下也需要进行界面操作。 虽然我们可以通过编写程序来实现界面操作（捕获桌面信息，压缩传输，发送鼠标键盘消息等），但是如果能够使用远程桌面服务，岂不是更加方便高效 那么，对应非服务器版本的Windows系统，在使用远程桌面服务有哪些需要注意的问题呢，本文将会逐">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006xriynly1fmrtc0z9x1j30hz021jr8.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtecyznrj30bd0bxq3m.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtfsadxyj30ph0gswkf.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtga5tymj30n009f0tf.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtgokzl0j30ez0budh4.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrthosuxej30jt07nt95.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrti6qum5j30p20jkacb.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtire5gqj30ne081myj.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtk1vcrwj30o90eqwgd.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmrtlm84lnj30hy0gu0ta.jpg">
+<meta property="og:updated_time" content="2017-12-24T06:02:53.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="渗透技巧之Windows系统远程桌面的多用户登录">
+<meta name="twitter:description" content="0x00 前言 在渗透测试中，经常会接触Windows服务器的远程桌面服务，通过界面对服务器进行管理。而对于普通的Windows系统，在某些条件下也需要进行界面操作。 虽然我们可以通过编写程序来实现界面操作（捕获桌面信息，压缩传输，发送鼠标键盘消息等），但是如果能够使用远程桌面服务，岂不是更加方便高效 那么，对应非服务器版本的Windows系统，在使用远程桌面服务有哪些需要注意的问题呢，本文将会逐">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006xriynly1fmrtc0z9x1j30hz021jr8.jpg">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e7d0b4f222c86066771d7246bd3dd18c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">菜单</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">菜单</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            归档
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            rel="noopener noreferrer"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-前言"><span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-简介"><span class="toc-text">0x01 简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-开启远程桌面的方法"><span class="toc-text">0x02 开启远程桌面的方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-非服务器版本的Windows系统默认只允许一个账户登录"><span class="toc-text">0x03 非服务器版本的Windows系统默认只允许一个账户登录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04-非服务器版本的Windows系统支持多用户登录的方法"><span class="toc-text">0x04 非服务器版本的Windows系统支持多用户登录的方法</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-windows-users-login" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">渗透技巧之Windows系统远程桌面的多用户登录</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.12.24</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>初遇</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><hr>
+<p>在渗透测试中，经常会接触Windows服务器的远程桌面服务，通过界面对服务器进行管理。而对于普通的Windows系统，在某些条件下也需要进行界面操作。</p>
+<p>虽然我们可以通过编写程序来实现界面操作（捕获桌面信息，压缩传输，发送鼠标键盘消息等），但是如果能够使用远程桌面服务，岂不是更加方便高效</p>
+<p>那么，对应非服务器版本的Windows系统，在使用远程桌面服务有哪些需要注意的问题呢，本文将会逐个分析介绍。</p>
+<h1 id="0x01-简介"><a href="#0x01-简介" class="headerlink" title="0x01 简介"></a>0x01 简介</h1><hr>
+<p>本文将要介绍如下内容：</p>
+<ul>
+<li>开启远程桌面的方法</li>
+<li>使用mimikatz支持远程桌面多用户的原理</li>
+<li>改进思路</li>
+<li>测试工具rdpwrap<h1 id="0x02-开启远程桌面的方法"><a href="#0x02-开启远程桌面的方法" class="headerlink" title="0x02 开启远程桌面的方法"></a>0x02 开启远程桌面的方法</h1></li>
+</ul>
+<hr>
+<p>1、查询系统是否允许3389远程连接<br><code>REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections</code><br>1表示关闭，0表示开启</p>
+<p>查看远程连接的端口：</p>
+<p><code>REG QUERY &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber</code><br>端口格式为16进制，如下图<br><img src="http://ww1.sinaimg.cn/large/006xriynly1fmrtc0z9x1j30hz021jr8.jpg" alt=""></p>
+<p>0xd3d转换为十进制为33389</p>
+<p>2、本机开启3389远程连接的方法<br>方法1：通过cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">REG ADD &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server&quot; /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</div><div class="line">REG ADD &quot;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v PortNumber /t REG_DWORD /d 0x00000d3d /f</div></pre></td></tr></table></figure></p>
+<p>方法2：通过reg文件<br>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Windows Registry Editor Version 5.00</div><div class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]</div><div class="line">&quot;fDenyTSConnections&quot;=dword:00000000</div><div class="line">[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]</div><div class="line">&quot;PortNumber&quot;=dword:00000d3d</div></pre></td></tr></table></figure></p>
+<p>导入注册表：</p>
+<p><code>regedit /s a.reg</code><br><strong>注：</strong></p>
+<p>如果修改连接端口，系统重启后才能生效</p>
+<p><strong>补充</strong></p>
+<p>如果系统未配置过远程桌面服务，第一次开启时还需要添加防火墙规则允许3389端口，如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtecyznrj30bd0bxq3m.jpg" alt=""></p>
+<p>修改防火墙配置，允许3389端口的命令如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">netsh advfirewall firewall add rule name=&quot;Remote Desktop&quot; protocol=TCP dir=in localport=3389 action=allow</div></pre></td></tr></table></figure></p>
+<p>3、远程连接方法<br>kali使用3389远程连接：</p>
+<p><code>rdesktop 192.168.1.1:3389</code><br>Windows：</p>
+<p><code>mstsc.exe</code></p>
+<h1 id="0x03-非服务器版本的Windows系统默认只允许一个账户登录"><a href="#0x03-非服务器版本的Windows系统默认只允许一个账户登录" class="headerlink" title="0x03 非服务器版本的Windows系统默认只允许一个账户登录"></a>0x03 非服务器版本的Windows系统默认只允许一个账户登录</h1><hr>
+<p>具体表现为：</p>
+<p>远程登录时，使用与原系统相同的账户，原系统将被切换到登录界面</p>
+<p>如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtfsadxyj30ph0gswkf.jpg" alt=""></p>
+<p>使用不同的账户，登录时提示其他用户已登录到此计算机，如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtga5tymj30n009f0tf.jpg" alt=""></p>
+<p>选择继续后，原系统桌面将弹框提示是否断开当前连接(30秒后默认选择同意，退回到登录界面)</p>
+<p>如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtgokzl0j30ez0budh4.jpg" alt=""></p>
+<h1 id="0x04-非服务器版本的Windows系统支持多用户登录的方法"><a href="#0x04-非服务器版本的Windows系统支持多用户登录的方法" class="headerlink" title="0x04 非服务器版本的Windows系统支持多用户登录的方法"></a>0x04 非服务器版本的Windows系统支持多用户登录的方法</h1><hr>
+<p>1、使用mimikatz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">privilege::debug</div><div class="line">ts::multirdp</div></pre></td></tr></table></figure></p>
+<p>执行如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrthosuxej30jt07nt95.jpg" alt=""></p>
+<p>开启多用户登录功能，最高支持到Win7</p>
+<p><strong>使用与原系统相同的账户，原系统还是会被切换到登录界面</strong></p>
+<p>使用与原系统不同的账户，登录成功，如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrti6qum5j30p20jkacb.jpg" alt=""></p>
+<p>通过查看mimikatz的源码找到修改思路，代码位置如下：</p>
+<p><a href="https://github.com/gentilkiwi/mimikatz/blob/master/mimikatz/modules/kuhl_m_ts.c" target="_blank" rel="external">https://github.com/gentilkiwi/mimikatz/blob/master/mimikatz/modules/kuhl_m_ts.c</a></p>
+<p>Windows在开启服务Remote Desktop Services时，会加载termsrv.dll，如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtire5gqj30ne081myj.jpg" alt=""></p>
+<p>通过修改内存中的termsrv.dll实现开启多用户功能，具体操作如下：</p>
+<p>Win7 x86：</p>
+<p>查找:<code>0x3B86200300000F84</code></p>
+<p>替换为:<code>0xC78620030000FFFFFF7F9090</code></p>
+<p>Win7 x64：</p>
+<p>查找:<code>0x39873C0600000F84</code></p>
+<p>替换为:<code>0xC7873C060000FFFFFF7F9090</code></p>
+<p>当然，该方法在系统重启后失效</p>
+<p>更近一步，如果我们直接修改文件termsrv.dll，能否实现永久开启多用户登录的功能呢？</p>
+<p>继续接下来的测试</p>
+<p>2、修改termsrv.dll<br>推荐工具： CFF Explorer</p>
+<p>测试系统： Win7 x64</p>
+<p>打开<code>c：\windows\system32</code>下的termsrv.dll</p>
+<p>Hex Editor</p>
+<p>查看十六进制数据<code>39873C0600000F84</code></p>
+<p>如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtk1vcrwj30o90eqwgd.jpg" alt=""></p>
+<p>从<code>0x0001738A</code>处开始，选中12字节，替换为<code>C7873C060000FFFFFF7F9090</code></p>
+<p>保存dll</p>
+<p>注：</p>
+<p>需要先停止远程桌面服务才能替换termsrv.dll</p>
+<p>替换termsrv.dll后，重新开启服务TermService</p>
+<p>尝试使用不同用户远程连接，成功，验证该思路正确</p>
+<p>完整操作如下：</p>
+<p>1.查看Remote Desktop Services服务状态</p>
+<p><code>sc qc TermService</code><br>2.如果服务启动，需要先关闭</p>
+<p><code>net stop TermService /y</code><br>3.删除原termsrv.dll</p>
+<p><code>del c:\windows\system32\termsrv.dll</code><br>4.替换新termsrv.dll</p>
+<p>5.启动服务</p>
+<p><code>net start TermService</code><br>6.远程连接</p>
+<p>成功实现多用户登录</p>
+<p>补充1：</p>
+<p>Win7 x86：</p>
+<p>查找:<code>0x3B86200300000F84</code></p>
+<p>替换为:<code>0xC78620030000FFFFFF7F9090</code></p>
+<p>补充2</p>
+<p>常见Windows系统的版本号：</p>
+<p>系统    版本号<br>Win7    6.1.7600<br>Win7sp1    6.1.7601<br>Win8    6.2.9200<br>Win8.1    6.3.9600<br>3、使用工具rdpwrap<br>工程地址：</p>
+<p><a href="https://github.com/stascorp/rdpwrap" target="_blank" rel="external">https://github.com/stascorp/rdpwrap</a></p>
+<p>工具地址：</p>
+<p><a href="https://github.com/stascorp/rdpwrap/releases" target="_blank" rel="external">https://github.com/stascorp/rdpwrap/releases</a></p>
+<p>支持Win Vista - Win 10</p>
+<p>不修改termsrv.dll，通过传入不同参数实现</p>
+<p>安装：</p>
+<p><code>RDPWInst.exe -i is</code><br>测试如下图</p>
+<p><img src="https://ws1.sinaimg.cn/large/006xriynly1fmrtlm84lnj30hy0gu0ta.jpg" alt=""></p>
+<p>释放rdpwrap.dll和rdpwrap.ini至System32文件夹</p>
+<p>rdpwrap.dll会被加载到同termsrv.dll相同的进程</p>
+<p>此时，能够使用不同用户进行远程连接</p>
+<p>卸载：</p>
+<p><code>RDPWInst.exe -u</code><br>0x05 小结<br>本文介绍了三种支持远程桌面多用户登录的方法，适用于不同条件，对于替换termsrv.dll的方法，需要根据系统具体版本，使用不同的替换位置</p>
+
+    
+  </div>
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持我们</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/12/23/upload-attack/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              归档
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              rel="noopener noreferrer"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+
+
+
+    
+
+    
+
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <div id="comment" class="vcomment" ></div>
+    <script>
+        var notify = 'true' == true ? true : false;
+        var verify = 'true' == true ? true : false;
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+        window.valine = new Valine({
+            el: '.vcomment',
+            notify: notify,
+            verify: verify,
+            appId: "AJkm1H6pqaOJj8Ri0diaiC1B-gzGzoHsz",
+            appKey: "C7iKty624EOzxxwH1pXfuXL9",
+            avatar:'mm',
+            placeholder: "看完了?来吐槽啊!记得正确填写邮箱,有回复会邮件通知你哦٩(๑❛ᴗ❛๑)۶",
+            guest_info:guest_info,
+            pageSize:'10'
+        });
+    </script>
+  
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
