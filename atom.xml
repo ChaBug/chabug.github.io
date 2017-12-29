@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-12-29T03:29:36.955Z</updated>
+  <updated>2017-12-29T04:28:06.740Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>同学，你的20GB寒假流量红包到了！</title>
+    <link href="http://www.chabug.org/2017/12/29/yidong-20g-student/"/>
+    <id>http://www.chabug.org/2017/12/29/yidong-20g-student/</id>
+    <published>2017-12-29T04:19:37.000Z</published>
+    <updated>2017-12-29T04:28:06.740Z</updated>
+    
+    <content type="html"><![CDATA[<p>2017年12月27日-2018年2月28日期间</p><p>微信关注<code>河南移动动感地带俱乐部</code>或者扫描下方二维码<br><img src="https://ws1.sinaimg.cn/large/006xriynly1fmxixk4mafj30f004qwel.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006xriynly1fmxixjxgyvj30bx07mglg.jpg" alt=""><br>点击公众号底部菜单-优惠福利-20G寒假流量红包，参与活动  </p><p>即可免费领取20GB省内流量或最高6GB国内流量</p><p>让你任性整个寒假！</p><p>已经有一万多小伙伴领取成功哦</p><h1 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h1><ul><li><p>限满足条件的校园客户参与：订购校园任我用套餐、校园流量王套餐、校园流量包、参加承诺低消送校园流量活动。以上条件满足一项即可。参与客户在活动有效期内不能转低档套餐，不能退订校园区域流量包。</p></li><li><p>满足条件的客户可以在国内流量和省内流量中任选其一：省内流量统一赠送20GB，有效期三个月；国内流量按照套餐档次最高赠送2GB/月x3个月。</p></li><li><p>本广告仅是要约邀请，具体活动内容及协议详询当地移动营业厅。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2017年12月27日-2018年2月28日期间&lt;/p&gt;
+&lt;p&gt;微信关注&lt;code&gt;河南移动动感地带俱乐部&lt;/code&gt;或者扫描下方二维码&lt;br&gt;&lt;img src=&quot;https://ws1.sinaimg.cn/large/006xriynly1fmxixk4mafj30f
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>SimpleHTTPServer:Python的简易HTTP服务</title>
@@ -429,28 +451,6 @@
       
       
         &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;因为博客放到了GitHub上，采用hexo，所以免不了接触git命令。&lt;br&gt;而像我这种健忘的人，今天记得命令，明天就忘了，所以写一篇命令收
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>工具收集之Layer4.1子域名挖掘机</title>
-    <link href="http://www.chabug.org/2017/11/08/Layer/"/>
-    <id>http://www.chabug.org/2017/11/08/Layer/</id>
-    <published>2017-11-08T09:12:42.000Z</published>
-    <updated>2017-11-08T09:21:08.970Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>实在是没啥可写了，收集点渗透测试中所需的几种工具。</p><h1 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h1><p><strong>Layer 子域名挖掘机4.1 全新重构+175万大字典</strong><br>优化详情：</p><ol><li>新起项目，代码全部重写，性能更优更稳定。</li><li>增加子端口探测功能，方便渗透测试。</li><li>增加DNS服务器切换和自定义，目前测试DNSPOD最快，个人测试最快达到了每秒3000+条验证，速度比上个版本增加5–10倍（速度会越跑越快）。</li><li>切换DNS服务器也可以避免进行大量DNS查询的时候影响正常上网。</li><li>对字典权重进行了调整，更容易命中的排在更前。</li><li>增加升级提醒，如果还有下个版本的话，会有提醒。<br>程序下载地址：<a href="https://pan.baidu.com/s/1dE4jgTr" target="_blank" rel="external">https://pan.baidu.com/s/1dE4jgTr</a> 密码: 9f5u<br>源码下载地址：<a href="https://pan.baidu.com/s/1qXURfzu" target="_blank" rel="external">https://pan.baidu.com/s/1qXURfzu</a><br>BTW：我也不知道360这个傻逼为什么会报窃取QQ密码的毒。<br><img src="http://ww1.sinaimg.cn/large/006xriynly1flasp3oj2mj316g0sq0ul.jpg" alt=""></li></ol><p><strong>Layer子域名挖掘机4.2纪念版 增加功能</strong></p><ol><li><p>增加获取web服务器信息的功能，如果在渗透过程中，担心软件自动访问web服务器会记录到web日志，可以关闭获取WEB服务器信息功能，但是如果干特别大的坏事，人家还是可以通过运营商的渠道来抓你。</p></li><li><p>增加线程控制，因有不少人反馈，开全速的时候，他们的小电脑会卡死，反正我电脑跑起来妥妥的，所以默认设置为全速。</p></li><li><p>增加右键复制所选项，胖子硬提出的需求。</p></li><li><p>修复了一个线程锁的问题，没修复前会引起程序崩溃。</p></li></ol><p>小TIPS：为了适应不同的分辨率，首次启动设置了全屏，可点击右上角的最大化按钮复位到我截图的这个小窗口。</p><p>程序地址：<a href="https://pan.baidu.com/s/1i5NpcJ7" target="_blank" rel="external">https://pan.baidu.com/s/1i5NpcJ7</a></p><p>源码地址：<a href="https://pan.baidu.com/s/1o8qAKYm" target="_blank" rel="external">https://pan.baidu.com/s/1o8qAKYm</a>  </p><p>作者<a href="http://www.cnseay.com/4452/" target="_blank" rel="external">Seay的博客</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;实在是没啥可写了，收集点渗透测试中所需的几种工具。&lt;/p&gt;
-&lt;h1 id=&quot;程序&quot;&gt;&lt;a href=&quot;#程序&quot; class=&quot;headerl
       
     
     </summary>

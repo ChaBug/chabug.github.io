@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>SimpleHTTPServer:Python的简易HTTP服务 | ChaBug安全 | Www.ChaBug.Org</title>
+  <title>同学，你的20GB寒假流量红包到了！ | ChaBug安全 | Www.ChaBug.Org</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,17 +15,20 @@
     <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
   
 
-  <meta name="description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
+  <meta name="description" content="2017年12月27日-2018年2月28日期间 微信关注河南移动动感地带俱乐部或者扫描下方二维码点击公众号底部菜单-优惠福利-20G寒假流量红包，参与活动   即可免费领取20GB省内流量或最高6GB国内流量 让你任性整个寒假！ 已经有一万多小伙伴领取成功哦 温馨提示 限满足条件的校园客户参与：订购校园任我用套餐、校园流量王套餐、校园流量包、参加承诺低消送校园流量活动。以上条件满足一项即可。参与">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SimpleHTTPServer:Python的简易HTTP服务">
-<meta property="og:url" content="http://www.chabug.org/2017/12/29/SimpleHTTPServer-Python-http/index.html">
+<meta property="og:title" content="同学，你的20GB寒假流量红包到了！">
+<meta property="og:url" content="http://www.chabug.org/2017/12/29/yidong-20g-student/index.html">
 <meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
-<meta property="og:description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
+<meta property="og:description" content="2017年12月27日-2018年2月28日期间 微信关注河南移动动感地带俱乐部或者扫描下方二维码点击公众号底部菜单-优惠福利-20G寒假流量红包，参与活动   即可免费领取20GB省内流量或最高6GB国内流量 让你任性整个寒假！ 已经有一万多小伙伴领取成功哦 温馨提示 限满足条件的校园客户参与：订购校园任我用套餐、校园流量王套餐、校园流量包、参加承诺低消送校园流量活动。以上条件满足一项即可。参与">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T03:29:36.955Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmxixk4mafj30f004qwel.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmxixjxgyvj30bx07mglg.jpg">
+<meta property="og:updated_time" content="2017-12-29T04:28:06.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SimpleHTTPServer:Python的简易HTTP服务">
-<meta name="twitter:description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
+<meta name="twitter:title" content="同学，你的20GB寒假流量红包到了！">
+<meta name="twitter:description" content="2017年12月27日-2018年2月28日期间 微信关注河南移动动感地带俱乐部或者扫描下方二维码点击公众号底部菜单-优惠福利-20G寒假流量红包，参与活动   即可免费领取20GB省内流量或最高6GB国内流量 让你任性整个寒假！ 已经有一万多小伙伴领取成功哦 温馨提示 限满足条件的校园客户参与：订购校园任我用套餐、校园流量王套餐、校园流量包、参加承诺低消送校园流量活动。以上条件满足一项即可。参与">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmxixk4mafj30f004qwel.jpg">
 
   
 
@@ -162,15 +165,15 @@
 
   <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#温馨提示"><span class="toc-text">温馨提示</span></a></li></ol>
   </div>
 
 
 
 <div class="content content-post CENTER">
-   <article id="post-SimpleHTTPServer-Python-http" class="article article-type-post" itemprop="blogPost">
+   <article id="post-yidong-20g-student" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">SimpleHTTPServer:Python的简易HTTP服务</h1>
+    <h1 class="post-title">同学，你的20GB寒假流量红包到了！</h1>
 
     <div class="article-meta">
       <span>
@@ -205,8 +208,19 @@
 
   <div class="article-content">
     
-      <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。<br>实际上来说，这是一个可以用来共享文件的非常有用的方式。<br>实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装 Python<br><code>apt-get update &amp;&amp; apt-get install python -y</code><br>开启服务，下面的语句代表你将 / web 目录作为了网站目录，同时访问地址为 <a href="http://你的IP:8080" target="_blank" rel="external">http://你的IP:8080</a><br><code>cd /web &amp;&amp; python -m SimpleHTTPServer 8080</code><br>其他<br>如果你需要上传功能，请自行安装 <code>SimpleHTTPServerWithUpload.py</code> 模块，复制放到 <code>/usr/lib/python2.X</code>文件内，之后开启 HTTP 服务后，就会发现多一个 upload 按钮。</p>
+      <p>2017年12月27日-2018年2月28日期间</p>
+<p>微信关注<code>河南移动动感地带俱乐部</code>或者扫描下方二维码<br><img src="https://ws1.sinaimg.cn/large/006xriynly1fmxixk4mafj30f004qwel.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006xriynly1fmxixjxgyvj30bx07mglg.jpg" alt=""><br>点击公众号底部菜单-优惠福利-20G寒假流量红包，参与活动  </p>
+<p>即可免费领取20GB省内流量或最高6GB国内流量</p>
+<p>让你任性整个寒假！</p>
+<p>已经有一万多小伙伴领取成功哦</p>
+<h1 id="温馨提示"><a href="#温馨提示" class="headerlink" title="温馨提示"></a>温馨提示</h1><ul>
+<li><p>限满足条件的校园客户参与：订购校园任我用套餐、校园流量王套餐、校园流量包、参加承诺低消送校园流量活动。以上条件满足一项即可。参与客户在活动有效期内不能转低档套餐，不能退订校园区域流量包。</p>
+</li>
+<li><p>满足条件的客户可以在国内流量和省内流量中任选其一：省内流量统一赠送20GB，有效期三个月；国内流量按照套餐档次最高赠送2GB/月x3个月。</p>
+</li>
+<li><p>本广告仅是要约邀请，具体活动内容及协议详询当地移动营业厅。</p>
+</li>
+</ul>
 
     
   </div>
@@ -237,10 +251,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/12/29/joke-oneyear/">
+    <a class="show pull-left" href="/2017/12/29/SimpleHTTPServer-Python-http/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/12/29/yidong-20g-student/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
