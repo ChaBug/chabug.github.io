@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ChaBug开通了微信公众号了！ | ChaBug安全 | Www.ChaBug.Org</title>
+  <title>SimpleHTTPServer:Python的简易HTTP服务 | ChaBug安全 | Www.ChaBug.Org</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -15,19 +15,17 @@
     <meta name="keywords" content="chabug,查bug,博客,寻找bug,初遇,chuyu,社区,Web,软件,分享,免费,安全" />
   
 
-  <meta name="description" content="经过几天的折腾，我们的初遇大大终于把微信公众号做好了。 每天都会推送一些有关网络安全的文章。 有实战类，工具流，exp&amp;amp;poc，以及一些免费的服务器vps，还有一些网络活动什么的，当然还会推荐一些好看的电影。 而且以后可能博客里更新会比较少了，更多会在微信公众号里更新。所以，多多关注哦。   总之，关注我们，你不会吃亏，不会上当。 微信搜索ChaBug安全或者扫描下方二维码，即可获取更多安">
+  <meta name="description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ChaBug开通了微信公众号了！">
-<meta property="og:url" content="http://www.chabug.org/2017/12/25/weixin-code/index.html">
+<meta property="og:title" content="SimpleHTTPServer:Python的简易HTTP服务">
+<meta property="og:url" content="http://www.chabug.org/2017/12/29/SimpleHTTPServer-Python-http/index.html">
 <meta property="og:site_name" content="ChaBug安全 | Www.ChaBug.Org">
-<meta property="og:description" content="经过几天的折腾，我们的初遇大大终于把微信公众号做好了。 每天都会推送一些有关网络安全的文章。 有实战类，工具流，exp&amp;amp;poc，以及一些免费的服务器vps，还有一些网络活动什么的，当然还会推荐一些好看的电影。 而且以后可能博客里更新会比较少了，更多会在微信公众号里更新。所以，多多关注哦。   总之，关注我们，你不会吃亏，不会上当。 微信搜索ChaBug安全或者扫描下方二维码，即可获取更多安">
+<meta property="og:description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmsv3i6kvwj30dw0dwwet.jpg">
-<meta property="og:updated_time" content="2017-12-25T03:42:25.232Z">
+<meta property="og:updated_time" content="2017-12-29T03:29:36.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChaBug开通了微信公众号了！">
-<meta name="twitter:description" content="经过几天的折腾，我们的初遇大大终于把微信公众号做好了。 每天都会推送一些有关网络安全的文章。 有实战类，工具流，exp&amp;amp;poc，以及一些免费的服务器vps，还有一些网络活动什么的，当然还会推荐一些好看的电影。 而且以后可能博客里更新会比较少了，更多会在微信公众号里更新。所以，多多关注哦。   总之，关注我们，你不会吃亏，不会上当。 微信搜索ChaBug安全或者扫描下方二维码，即可获取更多安">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006xriynly1fmsv3i6kvwj30dw0dwwet.jpg">
+<meta name="twitter:title" content="SimpleHTTPServer:Python的简易HTTP服务">
+<meta name="twitter:description" content="简介如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。实际上来说，这是一个可以用来共享文件的非常有用的方式。实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。 安装安装 Py">
 
   
 
@@ -162,17 +160,22 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
-   <article id="post-weixin-code" class="article article-type-post" itemprop="blogPost">
+   <article id="post-SimpleHTTPServer-Python-http" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">ChaBug开通了微信公众号了！</h1>
+    <h1 class="post-title">SimpleHTTPServer:Python的简易HTTP服务</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.12.25</span>
+        <span>2017.12.29</span>
       </span>
 
       
@@ -202,13 +205,8 @@
 
   <div class="article-content">
     
-      <p>经过几天的折腾，我们的初遇大大终于把微信公众号做好了。</p>
-<p>每天都会推送一些有关网络安全的文章。</p>
-<p>有实战类，工具流，exp&amp;poc，以及一些免费的服务器vps，还有一些网络活动什么的，当然还会推荐一些好看的电影。</p>
-<p>而且以后可能博客里更新会比较少了，更多会在微信公众号里更新。所以，多多关注哦。  </p>
-<p>总之，关注我们，你不会吃亏，不会上当。</p>
-<p>微信搜索<code>ChaBug安全</code>或者扫描下方二维码，即可获取更多安全资讯。</p>
-<p><strong>获取更多网络安全资讯，尽在ChaBug。<br>关注我们JJ+3CM（长按二维码识别）<br>QQ群：62851737</strong><br><img src="https://ws1.sinaimg.cn/large/006xriynly1fmsv3i6kvwj30dw0dwwet.jpg" alt=""></p>
+      <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。<br>实际上来说，这是一个可以用来共享文件的非常有用的方式。<br>实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装 Python<br><code>apt-get update &amp;&amp; apt-get install python -y</code><br>开启服务，下面的语句代表你将 / web 目录作为了网站目录，同时访问地址为 <a href="http://你的IP:8080" target="_blank" rel="external">http://你的IP:8080</a><br><code>cd /web &amp;&amp; python -m SimpleHTTPServer 8080</code><br>其他<br>如果你需要上传功能，请自行安装 <code>SimpleHTTPServerWithUpload.py</code> 模块，复制放到 <code>/usr/lib/python2.X</code>文件内，之后开启 HTTP 服务后，就会发现多一个 upload 按钮。</p>
 
     
   </div>
@@ -239,10 +237,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/12/24/windows-users-login/">
+    <a class="show pull-left" href="/2017/12/29/joke-oneyear/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/12/29/joke-oneyear/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>

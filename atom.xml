@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.chabug.org/"/>
-  <updated>2017-12-25T03:42:25.232Z</updated>
+  <updated>2017-12-29T03:29:36.955Z</updated>
   <id>http://www.chabug.org/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SimpleHTTPServer:Python的简易HTTP服务</title>
+    <link href="http://www.chabug.org/2017/12/29/SimpleHTTPServer-Python-http/"/>
+    <id>http://www.chabug.org/2017/12/29/SimpleHTTPServer-Python-http/</id>
+    <published>2017-12-29T03:26:09.000Z</published>
+    <updated>2017-12-29T03:29:36.955Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装。那么， Python 可能帮助你。Python 可以完成一个简单的内建 HTTP 服务器。<br>实际上来说，这是一个可以用来共享文件的非常有用的方式。<br>实现一个微型的 HTTP 服务程序来说是很简单的事情，在 Python 下，只需要一个命令行。</p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装 Python<br><code>apt-get update &amp;&amp; apt-get install python -y</code><br>开启服务，下面的语句代表你将 / web 目录作为了网站目录，同时访问地址为 <a href="http://你的IP:8080" target="_blank" rel="external">http://你的IP:8080</a><br><code>cd /web &amp;&amp; python -m SimpleHTTPServer 8080</code><br>其他<br>如果你需要上传功能，请自行安装 <code>SimpleHTTPServerWithUpload.py</code> 模块，复制放到 <code>/usr/lib/python2.X</code>文件内，之后开启 HTTP 服务后，就会发现多一个 upload 按钮。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;如果你急需一个简单的网页来分享一些文件，有不想麻烦的安装重量级的软件，比如 Apache，Nginx、IIS 甚至于 Caddy 都懒得安装
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>有哪些你可以笑一年的笑话？</title>
+    <link href="http://www.chabug.org/2017/12/29/joke-oneyear/"/>
+    <id>http://www.chabug.org/2017/12/29/joke-oneyear/</id>
+    <published>2017-12-29T03:16:38.000Z</published>
+    <updated>2017-12-29T03:26:02.884Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>来说说让你每次都会说，一说笑一年的笑话！</strong></p></blockquote><h2 id="我是一个逗比，啊哈哈哈哈"><a href="#我是一个逗比，啊哈哈哈哈" class="headerlink" title="我是一个逗比，啊哈哈哈哈"></a>我是一个逗比，啊哈哈哈哈</h2><ol><li>阿朱对乔峰说：乔大哥，我愿意和你一样，做个契丹人…乔峰感动的问到：为什么？？阿朱莞尔一笑：若干年后，少数民族高考可加分……</li><li>秋香：夫君，我准备给自己起个外国名字，你说叫什么好呢？唐伯虎：叫“唐伯虎·秋香”吧</li><li>话说武松在景阳冈下店家喝了不少酒，踉踉跄跄的上冈去。由于酒力发作，便找了块大青石将要躺下，忽听一阵狂风呼啸一只大虫将扑过来。武松腾地跳起闪躲过去，这大虫却不依不饶追在武松后面。疲于奔命的武松这时急中生智，朝着大虫扔出了一瓶急支糖浆。</li><li>愚公弥留之际，子孙围绕在床前，见愚公嘴巴张了又张，长子知道他心愿未了，便凑上前去附耳倾听，愚公艰难地说：“移山，移山。。。”长子愣了一会：“亮晶晶，满天都是小星星。。。谢谢爸比！”</li><li>密室中，小燕子和紫薇泪眼汪汪地被绑着。皇后一声令下：“嬷嬷，打！”容嬷嬷愣了愣，羞涩地回道：“皇后么么哒……”</li><li>白娘子受伤现了原形不知所踪，许仙狂奔到西湖边找到当年的船夫，急切问：“快告诉我娘子在哪里？娘子在哪里？”船夫一脸茫然：“我，我不知道…”许仙发疯似的紧紧掐住船夫：“你是摆渡你不知道？！”</li><li>白素贞路上偶遇法海，热情地打了个招呼：“海！” 法海高贵冷艳地回了句：“白。” 然后就转身走了。。。</li><li>灰姑娘出席了舞会，王子一看到她便被她迷住了，立即邀她共舞。 欢乐的时光过得很快，眼看就要午夜十二时了，灰姑娘不得已要马上离开，在仓皇间留下了一只水晶鞋。王子跟了出来，捡起了水晶鞋，陷入了 沉思：44码</li><li>孟子年幼时，有一次由于贪玩而没有上学，他母亲知道后，生气地拿起剪刀，割断正在织布的织线。孟母语重心长地对儿子说：“你废弃学业像我剪断布线，学习就跟织布一样，布断了再也接不起来了。”孟子拿起断掉的线头说：“谁说接不起来，母亲您看好了，现在是见证奇迹的时刻！”</li><li>为了帮杨过拿回绝情丹，公孙绿萼这妮子就要死了，死在她最爱的杨大哥怀里。可惜了这一片痴心啊，绿萼用尽最后一口气，想再叫一声杨大哥：“杨……杨……杨…”杨过将她抱得更紧了些，说：“恒…源…祥……”</li><li>刚刚有一个长得挺帅的男生找我要电话，我果断拒绝了，我说你有毛病吧，好几千块钱的电话能给你？他说跟我要电话号，我说我这号用了好几年也不能给你啊！然后他就走了。我发现这人真是有病啊，就差抢了是不是？见面就要电话，完了还要电话号，我号码里面还有话费呢。</li><li>“如何让一本正经的胡说八道？”         裸考马克思、毛概你就知道了。</li><li>小时候坐自行车后座……         我妈一个扫荡腿…………</li><li>记得我妈刚开始玩神秘逃亡的时候，那个激动啊，大吼大叫，玩完不忘跟旁边正在看电视的姥爷说：“爸，你也玩吧”，姥爷说“我玩不了，嗓子不行”。</li><li>昨天去吃烧烤，老板问我要几分辣，我说我要变态辣。于是老板一边加辣椒，一边摸着我的屁股问“这样够变态吗？”够变态吗？吗？</li><li>记得那天我出去高考，我爸说：“你一大早上又要去哪里玩儿啊？”</li><li>公厕上大号门坏了，用手把着门，结果被人拽了出来</li><li>前一段时间有个话题叫“古力娜扎张翰”，有一个人评论说，古力娜是谁？竟然敢扎张翰。</li><li>路上看见一个脏兮兮的男孩，紧紧盯着眼前小女孩手里的一袋牛奶。小女孩喝完了就随手把袋子扔到了地上，他赶忙蹲下捡起地上的牛奶袋，放进嘴巴里，我鼻子一酸眼泪就滚了下来。。。刚想拉起他就看见他把袋子吹得鼓鼓的放到地上，猛地一脚下去！“砰”，他妈的吓我一跳。</li><li>第一次去男友家吃饭，他妈妈煮的饭很好吃，吃完一碗站起来想再去加一碗饭，他妈妈连忙拉着我说，就放那吧，等会我一起洗吧，等会我一起洗吧…………没吃饱。</li><li>去旅游，雕像岳母刺字。然后一男同事很感慨的说“这也就是岳母能干出的事，亲妈干不出来”。然后，四周的游客都安静了，没错，他是很认真的说……</li><li>一大早上小李去上班路过公园，看见一位大爷在打着太极，小李被大爷的这种精神所感染一时兴起和大爷唠起了嗑，“大爷，您身体很好啊！”大爷乐呵呵的对他说“还行吧，小伙子，要坚持经常锻炼，来，你推我下试试。”然后，小李赔了大爷两万。</li><li>昨天我问一个女同事，“你摸着自己的良心说，假如自己是男的，你愿不愿意和自己谈恋爱？”她想了一下，突然脸红了，羞涩地说“想都不敢想，哪有这种福气”。。。</li><li>今天开会，同事说“阿飞，今天领导讲话的时候，你吃蛋糕，大家都在看你！”听同事说完，吓我一跳，不会领导想吃我的蛋糕吧。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;来说说让你每次都会说，一说笑一年的笑话！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;我是一个逗比，啊哈哈哈哈&quot;&gt;&lt;a href=&quot;#我是一个逗比，啊哈哈哈哈&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>ChaBug开通了微信公众号了！</title>
@@ -406,50 +451,6 @@
       
         &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;实在是没啥可写了，收集点渗透测试中所需的几种工具。&lt;/p&gt;
 &lt;h1 id=&quot;程序&quot;&gt;&lt;a href=&quot;#程序&quot; class=&quot;headerl
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>sqlmap与msf的亲密接触</title>
-    <link href="http://www.chabug.org/2017/11/08/sqlmap-msf/"/>
-    <id>http://www.chabug.org/2017/11/08/sqlmap-msf/</id>
-    <published>2017-11-08T08:59:20.000Z</published>
-    <updated>2017-11-09T02:21:07.187Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>以前的视频了，翻出来帮大家涨姿势把。</strong></p><iframe frameborder="0" width="800" height="600" src="https://v.qq.com/iframe/player.html?vid=t0544olbhxc&tiny=0&auto=0" allowfullscreen></iframe>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;以前的视频了，翻出来帮大家涨姿势把。&lt;/strong&gt;&lt;/p&gt;
-&lt;iframe frameborder=&quot;0&quot; width=&quot;800&quot; height=&quot;600&quot; src=&quot;https://v.qq.com/iframe/player.html?vid=t05
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>已更新邀请码 SSR分享-你的翻墙利器</title>
-    <link href="http://www.chabug.org/2017/11/07/ssr-share/"/>
-    <id>http://www.chabug.org/2017/11/07/ssr-share/</id>
-    <published>2017-11-07T14:30:45.000Z</published>
-    <updated>2017-11-07T14:40:52.669Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前奏"><a href="#前奏" class="headerlink" title="前奏"></a>前奏</h1><p>你是不是仍然被国内的网络环境所困扰？看这里！</p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a href="https://www.myshenwang.tk" target="_blank" rel="external">神网加速器 www.myshenwang.tk</a></p><p>注册初始10G每次签到100-1024MB有1新加坡2日本3美国2香港</p><h1 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h1><p><a href="https://www.myshenwang.tk/auth/register" target="_blank" rel="external">注册链接点我</a></p><p>在邀请码一栏填上下面的邀请码，注册成功后登陆使用ssr链接即可。</p><h1 id="邀请码"><a href="#邀请码" class="headerlink" title="邀请码"></a>邀请码</h1><table><thead><tr><th style="text-align:center">序号</th><th style="text-align:center">邀请码</th><th style="text-align:center">状态</th></tr></thead><tbody><tr><td style="text-align:center">6289</td><td style="text-align:center">BnKZC2UPwtdkijcZ8mcmLTDHQkw3OUsQ</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6305</td><td style="text-align:center">bqfOYHRy3hwMYU4aXHDtFyODzoj3xagh</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6304</td><td style="text-align:center">G7GBhz7o3MXriSRBd7rn4rZbalKTmlRL</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6303</td><td style="text-align:center">e5ByTbMzPEzzPzMUEDXnM5Lrf4ack5sH</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6302</td><td style="text-align:center">yk0ZZAztnYRCcySLK4r5N2TnrCSZeLl0</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6294</td><td style="text-align:center">UFx8zln6Rvc4t7ghaIm4e36UHCWh2EfH</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6292</td><td style="text-align:center">UU9lg2Pnkij9Ld9dv7vvr4SZofvhiiIB</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6291</td><td style="text-align:center">OysGSD2ilb0FJS90NHXHUoXFCQBEuXvp</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6290</td><td style="text-align:center">ir3TusS25CgqO4jN2rNSNisN3sSHO6En</td><td style="text-align:center">可用</td></tr><tr><td style="text-align:center">6306</td><td style="text-align:center">4IoEp6HA1F8fJMuY7Yak85abmfgtW96P</td><td style="text-align:center">可用</td></tr></tbody></table><p><strong>使用过哪个请在下方评论，方便你我他。</strong></p><h1 id="返利"><a href="#返利" class="headerlink" title="返利"></a>返利</h1><p>注意！邀请码请给认识的需要的人。<br>邀请有记录，若被邀请的人违反用户协议，您将会有连带责任。<br>邀请码暂时无法购买，请珍惜。</p><p>您每拉一位用户注册，可以获得<code>3G</code>流量奖励；当 TA 充值时还可获得 TA 充值金额的 <code>20 %</code>的提成。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;前奏&quot;&gt;&lt;a href=&quot;#前奏&quot; class=&quot;headerlink&quot; title=&quot;前奏&quot;&gt;&lt;/a&gt;前奏&lt;/h1&gt;&lt;p&gt;你是不是仍然被国内的网络环境所困扰？看这里！&lt;/p&gt;
-&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink
       
     
     </summary>
